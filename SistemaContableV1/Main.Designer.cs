@@ -20,6 +20,7 @@
             base.Dispose(disposing);
         }
 
+
         #region Windows Form Designer generated code
 
         /// <summary>
@@ -82,6 +83,7 @@
             btnPlanCuenta.TabIndex = 3;
             btnPlanCuenta.Text = "Plan de Cuentas";
             btnPlanCuenta.UseVisualStyleBackColor = true;
+            btnPlanCuenta.Click += btnPlanCuenta_Click;
             // 
             // btnLibroMayor
             // 

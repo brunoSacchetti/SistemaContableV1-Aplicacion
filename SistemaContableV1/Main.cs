@@ -42,5 +42,13 @@ namespace SistemaContableV1
             RegistroEmpresa regEmpresa = new RegistroEmpresa();
             CargarFormularioSecundario(regEmpresa);
         }
+
+        private void btnPlanCuenta_Click(object sender, EventArgs e)
+        {
+            PlanDeCuentas planDeCuentasForm = new PlanDeCuentas();
+
+            // Mostrar el formulario PlanDeCuentas
+            CargarFormularioSecundario(planDeCuentasForm);
+        }
     }
 }
