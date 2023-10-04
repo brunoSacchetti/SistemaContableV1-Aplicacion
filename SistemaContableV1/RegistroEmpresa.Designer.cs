@@ -40,6 +40,12 @@
             btnGuardar = new Button();
             btnModificar = new Button();
             Eliminar = new Button();
+            dataGridViewEmpresas = new DataGridView();
+            nombreEmpresa = new DataGridViewTextBoxColumn();
+            ciudadEmpresa = new DataGridViewTextBoxColumn();
+            telEmpresa = new DataGridViewTextBoxColumn();
+            emailEmpresa = new DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewEmpresas).BeginInit();
             SuspendLayout();
             // 
             // btnNombre
@@ -124,6 +130,7 @@
             btnGuardar.TabIndex = 9;
             btnGuardar.Text = "Guardar";
             btnGuardar.UseVisualStyleBackColor = true;
+            btnGuardar.Click += btnGuardar_Click;
             // 
             // btnModificar
             // 
@@ -142,13 +149,48 @@
             Eliminar.TabIndex = 11;
             Eliminar.Text = "Eliminar";
             Eliminar.UseVisualStyleBackColor = true;
+            Eliminar.Click += Eliminar_Click;
+            // 
+            // dataGridViewEmpresas
+            // 
+            dataGridViewEmpresas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewEmpresas.Columns.AddRange(new DataGridViewColumn[] { nombreEmpresa, ciudadEmpresa, telEmpresa, emailEmpresa });
+            dataGridViewEmpresas.Location = new Point(36, 261);
+            dataGridViewEmpresas.Name = "dataGridViewEmpresas";
+            dataGridViewEmpresas.RowTemplate.Height = 25;
+            dataGridViewEmpresas.Size = new Size(752, 299);
+            dataGridViewEmpresas.TabIndex = 12;
+            dataGridViewEmpresas.CellClick += dataGridViewEmpresas_CellClick;
+            // 
+            // nombreEmpresa
+            // 
+            nombreEmpresa.HeaderText = "Nombre";
+            nombreEmpresa.Name = "nombreEmpresa";
+            // 
+            // ciudadEmpresa
+            // 
+            ciudadEmpresa.HeaderText = "Ciudad";
+            ciudadEmpresa.Name = "ciudadEmpresa";
+            // 
+            // telEmpresa
+            // 
+            telEmpresa.HeaderText = "Telefono";
+            telEmpresa.Name = "telEmpresa";
+            telEmpresa.Width = 200;
+            // 
+            // emailEmpresa
+            // 
+            emailEmpresa.HeaderText = "Email";
+            emailEmpresa.Name = "emailEmpresa";
+            emailEmpresa.Width = 300;
             // 
             // RegistroEmpresa
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Bisque;
-            ClientSize = new Size(800, 275);
+            ClientSize = new Size(800, 572);
+            Controls.Add(dataGridViewEmpresas);
             Controls.Add(Eliminar);
             Controls.Add(btnModificar);
             Controls.Add(btnGuardar);
@@ -163,6 +205,7 @@
             Controls.Add(btnNombre);
             Name = "RegistroEmpresa";
             Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)dataGridViewEmpresas).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -181,5 +224,10 @@
         private Button btnGuardar;
         private Button btnModificar;
         private Button Eliminar;
+        private DataGridView dataGridViewEmpresas;
+        private DataGridViewTextBoxColumn nombreEmpresa;
+        private DataGridViewTextBoxColumn ciudadEmpresa;
+        private DataGridViewTextBoxColumn telEmpresa;
+        private DataGridViewTextBoxColumn emailEmpresa;
     }
 }

@@ -38,10 +38,11 @@
             // 
             // panel
             // 
+            panel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel.BorderStyle = BorderStyle.FixedSingle;
             panel.Location = new Point(150, 73);
             panel.Name = "panel";
-            panel.Size = new Size(773, 424);
+            panel.Size = new Size(884, 564);
             panel.TabIndex = 0;
             // 
             // label1
@@ -97,7 +98,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.AppWorkspace;
-            ClientSize = new Size(935, 509);
+            ClientSize = new Size(1046, 649);
             Controls.Add(btnLibroMayor);
             Controls.Add(btnPlanCuenta);
             Controls.Add(btnLibroDiario);
