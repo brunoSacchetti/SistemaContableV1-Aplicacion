@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,9 @@ namespace SistemaContableV1.Clases
 {
     internal class LibroDiario
     {
+        public List<Cuenta> cuentasLibroDiario = new List<Cuenta>();
+
+        
 
     }
 }
