@@ -10,6 +10,7 @@ namespace SistemaContableV1.Clases
     internal class LibroDiario
     {
         public List<Cuenta> cuentasLibroDiario = new List<Cuenta>();
+        
 
         
 

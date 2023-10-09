@@ -50,5 +50,11 @@ namespace SistemaContableV1
             // Mostrar el formulario PlanDeCuentas
             CargarFormularioSecundario(planDeCuentasForm);
         }
+
+        private void btnLibroDiario_Click(object sender, EventArgs e)
+        {
+            FormLibroDiario formLibroDiario = new FormLibroDiario();
+            CargarFormularioSecundario(formLibroDiario);
+        }
     }
 }

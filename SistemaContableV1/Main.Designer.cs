@@ -74,6 +74,7 @@
             btnLibroDiario.TabIndex = 2;
             btnLibroDiario.Text = "Libro Diario";
             btnLibroDiario.UseVisualStyleBackColor = true;
+            btnLibroDiario.Click += btnLibroDiario_Click;
             // 
             // btnPlanCuenta
             // 
