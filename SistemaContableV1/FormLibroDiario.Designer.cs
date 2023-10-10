@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             dataLibroDiario = new DataGridView();
+            cod = new DataGridViewTextBoxColumn();
+            cuentas = new DataGridViewTextBoxColumn();
+            debe = new DataGridViewTextBoxColumn();
+            haber = new DataGridViewTextBoxColumn();
             dataCuentas = new DataGridView();
             btnImportarCuenta = new Button();
             ((System.ComponentModel.ISupportInitialize)dataLibroDiario).BeginInit();
@@ -39,12 +43,36 @@
             // 
             dataLibroDiario.BackgroundColor = SystemColors.ControlLightLight;
             dataLibroDiario.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataLibroDiario.Columns.AddRange(new DataGridViewColumn[] { cod, cuentas, debe, haber });
             dataLibroDiario.GridColor = SystemColors.ButtonFace;
             dataLibroDiario.Location = new Point(12, 12);
             dataLibroDiario.Name = "dataLibroDiario";
             dataLibroDiario.RowTemplate.Height = 25;
             dataLibroDiario.Size = new Size(631, 538);
             dataLibroDiario.TabIndex = 0;
+            // 
+            // cod
+            // 
+            cod.HeaderText = "Codigo";
+            cod.Name = "cod";
+            // 
+            // cuentas
+            // 
+            cuentas.HeaderText = "Cuentas";
+            cuentas.Name = "cuentas";
+            cuentas.Width = 240;
+            // 
+            // debe
+            // 
+            debe.HeaderText = "Debe";
+            debe.Name = "debe";
+            debe.Width = 120;
+            // 
+            // haber
+            // 
+            haber.HeaderText = "Haber";
+            haber.Name = "haber";
+            haber.Width = 120;
             // 
             // dataCuentas
             // 
@@ -56,6 +84,7 @@
             dataCuentas.RowTemplate.Height = 25;
             dataCuentas.Size = new Size(250, 509);
             dataCuentas.TabIndex = 1;
+            dataCuentas.CellDoubleClick += dataCuentas_CellDoubleClick;
             // 
             // btnImportarCuenta
             // 
@@ -88,5 +117,9 @@
         private DataGridView dataLibroDiario;
         private DataGridView dataCuentas;
         private Button btnImportarCuenta;
+        private DataGridViewTextBoxColumn cod;
+        private DataGridViewTextBoxColumn cuentas;
+        private DataGridViewTextBoxColumn debe;
+        private DataGridViewTextBoxColumn haber;
     }
 }

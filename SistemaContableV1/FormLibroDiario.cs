@@ -71,5 +71,28 @@ namespace SistemaContableV1
                 dataCuentas.DataSource = dt;
             }
         }
+
+        private void dataCuentas_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            // Verificar si se hace doble clic en la columna y fila deseada
+            int columnIndex = 1; // Cambiar al índice de la columna deseada (por ejemplo, 0 para la primera columna)
+            int targetRow = e.RowIndex; // Obtener el índice de la fila en la que se hizo doble clic
+
+            if (targetRow >= 0 && targetRow < dataCuentas.Rows.Count && e.ColumnIndex == columnIndex)
+            {
+                // Copiar la fila seleccionada de dataGridView1
+                DataGridViewRow selectedRow = dataLibroDiario.Rows[targetRow].Clone() as DataGridViewRow;
+                for (int i = 0; i < dataLibroDiario.Columns.Count; i++)
+                {
+                    selectedRow.Cells[i].Value = dataLibroDiario.Rows[targetRow].Cells[i].Value;
+                }
+
+                // Agregar la fila copiada a dataGridView2
+                dataLibroDiario.Rows.Add(selectedRow);
+
+
+            }
+        }
     }
 }
