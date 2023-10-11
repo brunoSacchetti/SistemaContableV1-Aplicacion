@@ -30,74 +30,35 @@
         private void InitializeComponent()
         {
             label1 = new Label();
-            dataGridViewPlanCuentas = new DataGridView();
-            IdCuenta = new DataGridViewTextBoxColumn();
-            Rubro = new DataGridViewTextBoxColumn();
-            NumeroCuenta = new DataGridViewTextBoxColumn();
-            Descripcion = new DataGridViewTextBoxColumn();
             label2 = new Label();
             txtRubro = new TextBox();
-            txtNumeroCuenta = new TextBox();
-            txtDescripcion = new TextBox();
+            txtCuenta = new TextBox();
             label3 = new Label();
-            label4 = new Label();
             btnGuardar = new Button();
             btnModificar = new Button();
             btnEliminar = new Button();
             btnImprimir = new Button();
             txtId = new Label();
-            textId = new TextBox();
-            label5 = new Label();
-            ((System.ComponentModel.ISupportInitialize)dataGridViewPlanCuentas).BeginInit();
+            dPlanCuentas = new DataGridView();
+            id = new Label();
+            txtIde = new TextBox();
+            ((System.ComponentModel.ISupportInitialize)dPlanCuentas).BeginInit();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Gadugi", 21.75F, FontStyle.Italic, GraphicsUnit.Point);
-            label1.Location = new Point(281, 26);
+            label1.Location = new Point(153, 9);
             label1.Name = "label1";
             label1.Size = new Size(261, 34);
             label1.TabIndex = 0;
             label1.Text = "PLAN DE CUENTAS";
             // 
-            // dataGridViewPlanCuentas
-            // 
-            dataGridViewPlanCuentas.BackgroundColor = SystemColors.AppWorkspace;
-            dataGridViewPlanCuentas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewPlanCuentas.Columns.AddRange(new DataGridViewColumn[] { IdCuenta, Rubro, NumeroCuenta, Descripcion });
-            dataGridViewPlanCuentas.Location = new Point(122, 63);
-            dataGridViewPlanCuentas.Name = "dataGridViewPlanCuentas";
-            dataGridViewPlanCuentas.RowTemplate.Height = 25;
-            dataGridViewPlanCuentas.Size = new Size(543, 385);
-            dataGridViewPlanCuentas.TabIndex = 1;
-            // 
-            // IdCuenta
-            // 
-            IdCuenta.HeaderText = "Id";
-            IdCuenta.Name = "IdCuenta";
-            // 
-            // Rubro
-            // 
-            Rubro.HeaderText = "Rubro";
-            Rubro.Name = "Rubro";
-            // 
-            // NumeroCuenta
-            // 
-            NumeroCuenta.HeaderText = "Numero De Cuenta";
-            NumeroCuenta.Name = "NumeroCuenta";
-            NumeroCuenta.Width = 150;
-            // 
-            // Descripcion
-            // 
-            Descripcion.HeaderText = "Descripcion";
-            Descripcion.Name = "Descripcion";
-            Descripcion.Width = 150;
-            // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(303, 464);
+            label2.Location = new Point(213, 463);
             label2.Name = "label2";
             label2.Size = new Size(39, 15);
             label2.TabIndex = 2;
@@ -105,46 +66,30 @@
             // 
             // txtRubro
             // 
-            txtRubro.Location = new Point(268, 482);
+            txtRubro.Location = new Point(158, 481);
             txtRubro.Name = "txtRubro";
-            txtRubro.Size = new Size(100, 23);
+            txtRubro.Size = new Size(144, 23);
             txtRubro.TabIndex = 3;
             // 
-            // txtNumeroCuenta
+            // txtCuenta
             // 
-            txtNumeroCuenta.Location = new Point(413, 482);
-            txtNumeroCuenta.Name = "txtNumeroCuenta";
-            txtNumeroCuenta.Size = new Size(100, 23);
-            txtNumeroCuenta.TabIndex = 4;
-            // 
-            // txtDescripcion
-            // 
-            txtDescripcion.Location = new Point(565, 482);
-            txtDescripcion.Name = "txtDescripcion";
-            txtDescripcion.Size = new Size(100, 23);
-            txtDescripcion.TabIndex = 5;
+            txtCuenta.Location = new Point(308, 481);
+            txtCuenta.Name = "txtCuenta";
+            txtCuenta.Size = new Size(163, 23);
+            txtCuenta.TabIndex = 4;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(431, 464);
+            label3.Location = new Point(369, 463);
             label3.Name = "label3";
-            label3.Size = new Size(65, 15);
+            label3.Size = new Size(45, 15);
             label3.TabIndex = 6;
-            label3.Text = "NroCuenta";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(583, 461);
-            label4.Name = "label4";
-            label4.Size = new Size(69, 15);
-            label4.TabIndex = 7;
-            label4.Text = "Descripcion";
+            label3.Text = "Cuenta";
             // 
             // btnGuardar
             // 
-            btnGuardar.Location = new Point(132, 517);
+            btnGuardar.Location = new Point(477, 481);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(75, 23);
             btnGuardar.TabIndex = 8;
@@ -154,7 +99,7 @@
             // 
             // btnModificar
             // 
-            btnModificar.Location = new Point(281, 517);
+            btnModificar.Location = new Point(188, 524);
             btnModificar.Name = "btnModificar";
             btnModificar.Size = new Size(75, 23);
             btnModificar.TabIndex = 9;
@@ -164,7 +109,7 @@
             // 
             // btnEliminar
             // 
-            btnEliminar.Location = new Point(421, 517);
+            btnEliminar.Location = new Point(272, 524);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(75, 23);
             btnEliminar.TabIndex = 10;
@@ -174,7 +119,7 @@
             // 
             // btnImprimir
             // 
-            btnImprimir.Location = new Point(577, 517);
+            btnImprimir.Location = new Point(353, 524);
             btnImprimir.Name = "btnImprimir";
             btnImprimir.Size = new Size(75, 23);
             btnImprimir.TabIndex = 11;
@@ -188,45 +133,53 @@
             txtId.Size = new Size(100, 23);
             txtId.TabIndex = 0;
             // 
-            // textId
+            // dPlanCuentas
             // 
-            textId.Location = new Point(122, 482);
-            textId.Name = "textId";
-            textId.Size = new Size(100, 23);
-            textId.TabIndex = 12;
+            dPlanCuentas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dPlanCuentas.Location = new Point(84, 60);
+            dPlanCuentas.Name = "dPlanCuentas";
+            dPlanCuentas.RowTemplate.Height = 25;
+            dPlanCuentas.Size = new Size(394, 386);
+            dPlanCuentas.TabIndex = 15;
+            dPlanCuentas.CellMouseClick += dPlanCuentas_CellMouseClick;
             // 
-            // label5
+            // id
             // 
-            label5.AutoSize = true;
-            label5.Location = new Point(162, 464);
-            label5.Name = "label5";
-            label5.Size = new Size(17, 15);
-            label5.TabIndex = 13;
-            label5.Text = "Id";
+            id.AutoSize = true;
+            id.Location = new Point(97, 463);
+            id.Name = "id";
+            id.Size = new Size(18, 15);
+            id.TabIndex = 16;
+            id.Text = "ID";
+            // 
+            // txtIde
+            // 
+            txtIde.Location = new Point(68, 481);
+            txtIde.Name = "txtIde";
+            txtIde.Size = new Size(74, 23);
+            txtIde.TabIndex = 17;
             // 
             // PlanDeCuentas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Bisque;
-            ClientSize = new Size(892, 663);
-            Controls.Add(label5);
-            Controls.Add(textId);
+            ClientSize = new Size(602, 570);
+            Controls.Add(txtIde);
+            Controls.Add(id);
+            Controls.Add(dPlanCuentas);
             Controls.Add(btnImprimir);
             Controls.Add(btnEliminar);
             Controls.Add(btnModificar);
             Controls.Add(btnGuardar);
-            Controls.Add(label4);
             Controls.Add(label3);
-            Controls.Add(txtDescripcion);
-            Controls.Add(txtNumeroCuenta);
+            Controls.Add(txtCuenta);
             Controls.Add(txtRubro);
             Controls.Add(label2);
-            Controls.Add(dataGridViewPlanCuentas);
             Controls.Add(label1);
             Name = "PlanDeCuentas";
             Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)dataGridViewPlanCuentas).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dPlanCuentas).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -234,23 +187,17 @@
         #endregion
 
         private Label label1;
-        private DataGridView dataGridViewPlanCuentas;
         private Label label2;
         private TextBox txtRubro;
-        private TextBox txtNumeroCuenta;
-        private TextBox txtDescripcion;
+        private TextBox txtCuenta;
         private Label label3;
-        private Label label4;
         private Button btnGuardar;
         private Button btnModificar;
         private Button btnEliminar;
         private Button btnImprimir;
-        private DataGridViewTextBoxColumn IdCuenta;
-        private DataGridViewTextBoxColumn Rubro;
-        private DataGridViewTextBoxColumn NumeroCuenta;
-        private DataGridViewTextBoxColumn Descripcion;
         private Label txtId;
-        private TextBox textId;
-        private Label label5;
+        private DataGridView dPlanCuentas;
+        private Label id;
+        private TextBox txtIde;
     }
 }
