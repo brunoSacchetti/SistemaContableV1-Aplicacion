@@ -43,14 +43,14 @@
             panel.BorderStyle = BorderStyle.FixedSingle;
             panel.Location = new Point(150, 73);
             panel.Name = "panel";
-            panel.Size = new Size(884, 564);
+            panel.Size = new Size(1038, 602);
             panel.TabIndex = 0;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Lucida Sans Unicode", 21.75F, FontStyle.Italic, GraphicsUnit.Point);
-            label1.Location = new Point(379, 9);
+            label1.Location = new Point(516, 9);
             label1.Name = "label1";
             label1.Size = new Size(293, 35);
             label1.TabIndex = 0;
@@ -101,7 +101,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.AppWorkspace;
-            ClientSize = new Size(1046, 649);
+            ClientSize = new Size(1200, 687);
             Controls.Add(btnLibroMayor);
             Controls.Add(btnPlanCuenta);
             Controls.Add(btnLibroDiario);

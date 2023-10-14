@@ -10,12 +10,8 @@ namespace SistemaContableV1.Clases
     {
         //public string _id { get; set; }
         public string nombreCuenta { get; set; }
-        public int codigoCuenta { get; set; }
+        public decimal saldoDebe {  get; set; }
 
-        public Cuenta(string nombre, int codigo)
-        {
-            this.nombreCuenta = nombre;
-            this.codigoCuenta = codigo;
-        }
+        public decimal saldoHaber { get; set; }
     }
 }

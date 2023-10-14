@@ -8,11 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Office.Interop.Excel;
+using SistemaContableV1.Clases;
 
 namespace SistemaContableV1
 {
     public partial class FormLibroDiario : Form
     {
+
+        Blockchain blockchainAsientos;
+
         public FormLibroDiario()
         {
             InitializeComponent();
@@ -20,56 +24,11 @@ namespace SistemaContableV1
 
         }
 
-        // Crear una instancia de Excel
-        Microsoft.Office.Interop.Excel.Application excelApp = new Microsoft.Office.Interop.Excel.Application();
-
-        // Obtener los datos del archivo Excel y cargarlos en un DataTable
-        System.Data.DataTable dt = new System.Data.DataTable();
-
         private void btnImportarCuenta_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog1 = new OpenFileDialog();
-            openFileDialog1.Filter = "Archivos de Excel|*.xlsx;*.xls";
+            PlanCuentas pC = new PlanCuentas();
+            pC.mostrarCuentas(dataCuentas);
 
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                string archivoExcel = openFileDialog1.FileName;
-
-                // Crear una instancia de Excel
-                Microsoft.Office.Interop.Excel.Application excelApp = new Microsoft.Office.Interop.Excel.Application();
-                Workbook excelWorkbook = excelApp.Workbooks.Open(archivoExcel);
-                Worksheet excelWorksheet = excelWorkbook.Sheets[1]; // Suponiendo que los datos están en la primera hoja
-
-                // Obtener los datos del archivo Excel y cargarlos en un DataTable
-                System.Data.DataTable dt = new System.Data.DataTable();
-                //int totalColumns = excelWorksheet.UsedRange.Columns.Count;
-                int rowCount = excelWorksheet.UsedRange.Rows.Count;
-                int colCount = excelWorksheet.UsedRange.Columns.Count;
-
-                for (int col = 1; col <= colCount; col++)
-                {
-                    string header = excelWorksheet.Cells[1, col].Value.ToString();
-                    dt.Columns.Add(header);
-                }
-
-                // Leer datos y agregar filas al DataTable
-                for (int row = 2; row <= rowCount; row++)
-                {
-                    DataRow dr = dt.NewRow();
-                    for (int col = 1; col <= colCount; col++)
-                    {
-                        dr[col - 1] = excelWorksheet.Cells[row, col].Value != null ? excelWorksheet.Cells[row, col].Value.ToString() : string.Empty;
-                    }
-                    dt.Rows.Add(dr);
-                }
-
-                // Cerrar Excel
-                excelWorkbook.Close();
-                excelApp.Quit();
-
-                // Enlazar el DataTable al DataGridView
-                dataCuentas.DataSource = dt;
-            }
         }
 
         private void dataCuentas_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -93,6 +52,100 @@ namespace SistemaContableV1
 
 
             }
+        }
+
+        private void dataCuentas_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow selectedRow = dataCuentas.Rows[e.RowIndex];
+                string id = selectedRow.Cells["id"].Value.ToString();
+                string cuenta = selectedRow.Cells["cuenta"].Value.ToString();
+
+                dataLibroDiario.Rows.Add(id, cuenta);
+            }
+        }
+
+        private void btnEliminaCuenta_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dataLibroDiario.SelectedRows.Count > 0)
+                {
+                    foreach (DataGridViewRow selectedRow in dataLibroDiario.SelectedRows)
+                    {
+                        dataLibroDiario.Rows.Remove(selectedRow);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnGuardarAsiento_Click(object sender, EventArgs e)
+        {
+
+            List<Cuenta> debe = new List<Cuenta>();
+            List<Cuenta> haber = new List<Cuenta>();
+
+            foreach (DataGridViewRow fila in dataLibroDiario.Rows)
+            {
+                if (fila.IsNewRow)
+                {
+                    // Ignora la fila de nueva creación (si la hay)
+                    continue;
+                }
+                try
+                {
+
+                    Cuenta cuenta = new Cuenta
+                    {
+                        nombreCuenta = fila.Cells["Cuentas"].Value.ToString(),
+                        saldoDebe = Convert.ToDecimal(fila.Cells["Debe"].Value),
+                        saldoHaber = Convert.ToDecimal(fila.Cells["Haber"].Value),
+                    };
+
+                    if (cuenta.saldoDebe == 0 || string.IsNullOrWhiteSpace(fila.Cells["Debe"].Value.ToString()))
+                    {
+                        haber.Add(cuenta);
+                        MessageBox.Show("ESTOY EN EL HABER");
+                    }
+                    else if (cuenta.saldoHaber == 0 || string.IsNullOrWhiteSpace(fila.Cells["Haber"].Value.ToString()))
+                    {
+                        debe.Add(cuenta);
+                        MessageBox.Show("ESTOY EN EL DEBE");
+                    }
+
+                    MessageBox.Show("Cuenta: " + cuenta.nombreCuenta);
+                    MessageBox.Show("DEBE: " + cuenta.saldoDebe);
+                    MessageBox.Show("HABER: " + cuenta.saldoHaber);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Debe ingresar valores validos");
+                }
+
+            }
+
+            AsientoContable asientoContable = new AsientoContable(debe, haber);
+
+            try
+            {
+                if (asientoContable != null)
+                {
+                    blockchainAsientos.AddBlock(new Block(DateTime.Now, null, asientoContable));
+                    MessageBox.Show("Se agrego correctamente el asiento a la BLOCKCHAIN");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("NO se pudo agregar el asiento a la BLOCKCHAIN");
+            }
+
+            dataLibroDiario.Rows.Clear();
+
         }
     }
 }

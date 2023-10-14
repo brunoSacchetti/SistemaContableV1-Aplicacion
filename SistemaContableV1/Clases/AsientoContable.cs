@@ -8,19 +8,15 @@ namespace SistemaContableV1.Clases
 {
     internal class AsientoContable
     {
-        public Cuenta cuentaDebe { get; set; }
-        public Cuenta cuentaHaber { get; set; }
-        public double saldoDebe { get; set; }
-        public double saldoHaber { get; set; }
+        public List<Cuenta> cuentasDebe;
+        public List<Cuenta> cuentasHaber;
 
         public AsientoContable() { }
-        public AsientoContable(Cuenta cuentaDebe, Cuenta cuentaHaber, double saldoDebe, double saldoHaber)
-        {
-            this.cuentaDebe = cuentaDebe;
-            this.cuentaHaber = cuentaHaber;
-            this.saldoDebe = saldoDebe;
-            this.saldoHaber = saldoHaber;
-        }
 
+        public AsientoContable(List<Cuenta> cuentasDebe, List<Cuenta> cuentasHaber)
+        {
+            this.cuentasDebe = cuentasDebe;
+            this.cuentasHaber = cuentasHaber;
+        }
     }
 }
