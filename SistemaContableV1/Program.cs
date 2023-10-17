@@ -1,3 +1,5 @@
+using SistemaContableV1.Clases;
+
 namespace SistemaContableV1
 {
     internal static class Program

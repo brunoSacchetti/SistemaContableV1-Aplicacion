@@ -15,14 +15,13 @@ namespace SistemaContableV1
     public partial class FormLibroDiario : Form
     {
 
-        
+
         Blockchain blockchainAsientos = new Blockchain();
 
         public FormLibroDiario()
         {
             InitializeComponent();
-
-
+            
         }
 
         private void btnImportarCuenta_Click(object sender, EventArgs e)
@@ -148,7 +147,7 @@ namespace SistemaContableV1
             }
 
             dataLibroDiario.Rows.Clear();
-
+            
         }
     }
 }
