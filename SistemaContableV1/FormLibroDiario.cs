@@ -15,7 +15,8 @@ namespace SistemaContableV1
     public partial class FormLibroDiario : Form
     {
 
-        Blockchain blockchainAsientos;
+        
+        Blockchain blockchainAsientos = new Blockchain();
 
         public FormLibroDiario()
         {
@@ -89,7 +90,7 @@ namespace SistemaContableV1
 
             List<Cuenta> debe = new List<Cuenta>();
             List<Cuenta> haber = new List<Cuenta>();
-
+            
             foreach (DataGridViewRow fila in dataLibroDiario.Rows)
             {
                 if (fila.IsNewRow)
@@ -135,6 +136,8 @@ namespace SistemaContableV1
             {
                 if (asientoContable != null)
                 {
+
+
                     blockchainAsientos.AddBlock(new Block(DateTime.Now, null, asientoContable));
                     MessageBox.Show("Se agrego correctamente el asiento a la BLOCKCHAIN");
                 }

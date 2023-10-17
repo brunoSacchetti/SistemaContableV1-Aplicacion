@@ -16,4 +16,3 @@ insert into cuentas values (null,"Activo","Inmuebles");
 insert into cuentas values (null,"Pasivo","Proveedores");
 insert into cuentas values (null,"PN","Capital");
 
-select * from cuentas;
