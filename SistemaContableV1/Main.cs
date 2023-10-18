@@ -56,5 +56,10 @@ namespace SistemaContableV1
             FormLibroDiario formLibroDiario = new FormLibroDiario();
             CargarFormularioSecundario(formLibroDiario);
         }
+
+        private void btnLibroMayor_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

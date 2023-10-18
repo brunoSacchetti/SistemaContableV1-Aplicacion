@@ -95,6 +95,7 @@
             btnLibroMayor.TabStop = false;
             btnLibroMayor.Text = "Libro Mayor";
             btnLibroMayor.UseVisualStyleBackColor = true;
+            btnLibroMayor.Click += btnLibroMayor_Click;
             // 
             // Main
             // 

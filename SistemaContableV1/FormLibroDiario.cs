@@ -21,7 +21,7 @@ namespace SistemaContableV1
         public FormLibroDiario()
         {
             InitializeComponent();
-            
+
         }
 
         private void btnImportarCuenta_Click(object sender, EventArgs e)
@@ -89,7 +89,7 @@ namespace SistemaContableV1
 
             List<Cuenta> debe = new List<Cuenta>();
             List<Cuenta> haber = new List<Cuenta>();
-            
+
             foreach (DataGridViewRow fila in dataLibroDiario.Rows)
             {
                 if (fila.IsNewRow)
@@ -131,14 +131,18 @@ namespace SistemaContableV1
 
             AsientoContable asientoContable = new AsientoContable(debe, haber);
 
+
             try
             {
-                if (asientoContable != null)
+                if (asientoContable != null && debe.Count > 0 || haber.Count > 0)
                 {
-
-
                     blockchainAsientos.AddBlock(new Block(DateTime.Now, null, asientoContable));
+                  
                     MessageBox.Show("Se agrego correctamente el asiento a la BLOCKCHAIN");
+                    
+                } else if (asientoContable == null)
+                {
+                    MessageBox.Show("Debe ingresar al menos una cuenta");
                 }
             }
             catch (Exception ex)
@@ -147,6 +151,15 @@ namespace SistemaContableV1
             }
 
             dataLibroDiario.Rows.Clear();
+            debe.Clear();
+            haber.Clear();
+        }
+
+        private void btnLibroMayor_Click(object sender, EventArgs e)
+        {
+            
+            //FormLibroMayor formLibroMayor = new FormLibroMayor(blockchainAsientos);
+            //formLibroMayor.Show();
             
         }
     }

@@ -37,6 +37,7 @@
             btnImportarCuenta = new Button();
             btnEliminaCuenta = new Button();
             btnGuardarAsiento = new Button();
+            btnLibroMayor = new Button();
             ((System.ComponentModel.ISupportInitialize)dataLibroDiario).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataCuentas).BeginInit();
             SuspendLayout();
@@ -122,12 +123,23 @@
             btnGuardarAsiento.UseVisualStyleBackColor = true;
             btnGuardarAsiento.Click += btnGuardarAsiento_Click;
             // 
+            // btnLibroMayor
+            // 
+            btnLibroMayor.Location = new Point(777, 561);
+            btnLibroMayor.Name = "btnLibroMayor";
+            btnLibroMayor.Size = new Size(101, 34);
+            btnLibroMayor.TabIndex = 5;
+            btnLibroMayor.Text = "Libro Mayor";
+            btnLibroMayor.UseVisualStyleBackColor = true;
+            btnLibroMayor.Click += btnLibroMayor_Click;
+            // 
             // FormLibroDiario
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveBorder;
             ClientSize = new Size(1055, 613);
+            Controls.Add(btnLibroMayor);
             Controls.Add(btnGuardarAsiento);
             Controls.Add(btnEliminaCuenta);
             Controls.Add(dataCuentas);
@@ -151,5 +163,6 @@
         private DataGridViewTextBoxColumn haber;
         private Button btnEliminaCuenta;
         private Button btnGuardarAsiento;
+        private Button btnLibroMayor;
     }
 }

@@ -14,25 +14,27 @@ namespace SistemaContableV1
     public partial class FormLibroMayor : Form
     {
 
+        Blockchain blockchainAsientos;
+
         public FormLibroMayor()
-        {
+        {  
             InitializeComponent();
         }
 
-        /*public FormLibroMayor(Blockchain blockchain)
+        /*public void recibirBlockchain(Blockchain blockchain)
         {
-            InitializeComponent();
-            this.blockchain = blockchain;
+            blockchainAsientos = blockchain;
         }*/
-
-        /*public decimal calcularLibroMayor(Blockchain blockchain)
+        
+        private void btnMayorUnaCuenta_Click(object sender, EventArgs e)
         {
+
             DateTime fechaInicio = dateTimeFechaInicio.Value;
             DateTime fechaFinal = dateTimeFechaFin.Value;
             string nombreCuenta = txtCuentaMayor.Text;
             decimal saldoAcumulado = 0;
 
-            foreach (Block bloque in blockchain.Cadena)
+            foreach (Block bloque in blockchainAsientos.Cadena)
             {
                 if (bloque.TimeStamp >= fechaInicio && bloque.TimeStamp <= fechaFinal)
                 {
@@ -52,12 +54,7 @@ namespace SistemaContableV1
                     }
                 }
             }
-            return saldoAcumulado;
-        }*/
-
-        private void btnMayorUnaCuenta_Click(object sender, EventArgs e)
-        {
-
+            MessageBox.Show("Saldo: " + saldoAcumulado);
         }
     }
 }
