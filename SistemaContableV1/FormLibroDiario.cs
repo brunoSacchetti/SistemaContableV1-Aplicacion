@@ -131,23 +131,21 @@ namespace SistemaContableV1
 
             AsientoContable asientoContable = new AsientoContable(debe, haber);
 
-
-            try
+            if (debe.Count > 0 || haber.Count > 0)
             {
-                if (asientoContable != null && debe.Count > 0 || haber.Count > 0)
+                try
                 {
                     blockchainAsientos.AddBlock(new Block(DateTime.Now, null, asientoContable));
-                  
                     MessageBox.Show("Se agrego correctamente el asiento a la BLOCKCHAIN");
-                    
-                } else if (asientoContable == null)
+                }
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Debe ingresar al menos una cuenta");
+                    MessageBox.Show("NO se pudo agregar el asiento a la BLOCKCHAIN");
                 }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("NO se pudo agregar el asiento a la BLOCKCHAIN");
+                MessageBox.Show("Debe ingresar al menos una cuenta para poder guardar el asiento en la BLOCKCHAIN");
             }
 
             dataLibroDiario.Rows.Clear();
@@ -155,12 +153,101 @@ namespace SistemaContableV1
             haber.Clear();
         }
 
+
+
         private void btnLibroMayor_Click(object sender, EventArgs e)
         {
+
+            /*DateTime fechaInicio = dateTimePicker1.Value;//dateTimeFechaInicio.Value;
+            DateTime fechaFinal = dateTimePicker2.Value;//dateTimeFechaFin.Value;
+            string nombreCuenta = textBox1.Text;//txtCuentaMayor.Text;
+            decimal saldoAcumulado = 0;
+
+            foreach (Block bloque in blockchainAsientos.Cadena)
+            {
+                if (bloque.TimeStamp >= fechaInicio && bloque.TimeStamp <= fechaFinal)
+                {
+                    foreach (Cuenta cuenta in bloque.Data.cuentasDebe)
+                    {
+                        if (cuenta.nombreCuenta == nombreCuenta)
+                        {
+                            saldoAcumulado += cuenta.saldoDebe;
+                            MessageBox.Show("Estoy en el debe mayor");
+                        }
+                    }
+                    foreach (Cuenta cuenta in bloque.Data.cuentasHaber)
+                    {
+                        if (cuenta.nombreCuenta == nombreCuenta)
+                        {
+                            saldoAcumulado -= cuenta.saldoHaber;
+                            MessageBox.Show("Estoy en el haber mayor");
+                        }
+                    }
+                }
+            }
+            MessageBox.Show("Saldo: " + saldoAcumulado);*/
             
-            //FormLibroMayor formLibroMayor = new FormLibroMayor(blockchainAsientos);
-            //formLibroMayor.Show();
-            
+            // ---------------------------------------------------
+
+            string cuentaBuscada = textBox1.Text;
+            DateTime fechaInicio = dateTimePicker1.Value;
+            DateTime fechaFin = dateTimePicker2.Value;
+
+            // Filtra las transacciones dentro del rango de fechas
+            List<AsientoContable> transaccionesFiltradas = blockchainAsientos.GetBlocksInRange(fechaInicio, fechaFin);
+
+            if (!string.IsNullOrEmpty(cuentaBuscada))
+            {
+                // Filtra las transacciones que corresponden a la cuenta buscada
+                transaccionesFiltradas = transaccionesFiltradas
+                    .Where(asiento => asiento.ContieneCuenta(cuentaBuscada))
+                    .ToList();
+            }
+
+            // Calcula el libro mayor
+            Dictionary<string, decimal> libroMayor = new Dictionary<string, decimal>();
+            foreach (var asiento in transaccionesFiltradas)
+            {
+                foreach (var cuenta in asiento.cuentasDebe)
+                {
+                    if (!libroMayor.ContainsKey(cuenta.nombreCuenta))
+                        libroMayor[cuenta.nombreCuenta] = 0;
+
+                    libroMayor[cuenta.nombreCuenta] += cuenta.saldoDebe;
+                }
+
+                foreach (var cuenta in asiento.cuentasHaber)
+                {
+                    if (!libroMayor.ContainsKey(cuenta.nombreCuenta))
+                        libroMayor[cuenta.nombreCuenta] = 0;
+
+                    libroMayor[cuenta.nombreCuenta] -= cuenta.saldoHaber;
+                }
+            }
+
+            // Muestra el libro mayor en un control (puede ser un DataGridView, ListBox, etc.)
+            // Por ejemplo, si usas un DataGridView llamado dataLibroMayor:
+            dataGridView1.Rows.Clear();
+            foreach (var kvp in libroMayor)
+            {
+                dataGridView1.Rows.Add(kvp.Key, kvp.Value);
+            }
+            MessageBox.Show("FIN");
+        }
+
+        private void btnBlockchain_Click(object sender, EventArgs e)
+        {
+            foreach (Block block in blockchainAsientos.Cadena)
+            {
+
+                MessageBox.Show("Date" + block.TimeStamp.ToString());
+                MessageBox.Show("HASH" + block.Hash.ToString());
+                MessageBox.Show("INDEX" + block.Index.ToString());
+                MessageBox.Show("ASIENTO" + block.Data);
+
+
+
+            }
         }
     }
 }

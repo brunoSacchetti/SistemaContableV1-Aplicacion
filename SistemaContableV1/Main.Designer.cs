@@ -43,7 +43,7 @@
             panel.BorderStyle = BorderStyle.FixedSingle;
             panel.Location = new Point(150, 73);
             panel.Name = "panel";
-            panel.Size = new Size(1038, 602);
+            panel.Size = new Size(1038, 634);
             panel.TabIndex = 0;
             // 
             // label1
@@ -102,7 +102,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.AppWorkspace;
-            ClientSize = new Size(1200, 687);
+            ClientSize = new Size(1200, 719);
             Controls.Add(btnLibroMayor);
             Controls.Add(btnPlanCuenta);
             Controls.Add(btnLibroDiario);

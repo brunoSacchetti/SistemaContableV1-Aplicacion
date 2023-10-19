@@ -18,5 +18,26 @@ namespace SistemaContableV1.Clases
             this.cuentasDebe = cuentasDebe;
             this.cuentasHaber = cuentasHaber;
         }
+
+        public bool ContieneCuenta(string cuentaBuscada)
+        {
+            foreach (Cuenta cuenta in cuentasDebe)
+            {
+                if (cuenta.nombreCuenta.Equals(cuentaBuscada, StringComparison.OrdinalIgnoreCase))
+                {
+                    return true;
+                }
+            }
+
+            foreach (Cuenta cuenta in cuentasHaber)
+            {
+                if (cuenta.nombreCuenta.Equals(cuentaBuscada, StringComparison.OrdinalIgnoreCase))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
     }
 }

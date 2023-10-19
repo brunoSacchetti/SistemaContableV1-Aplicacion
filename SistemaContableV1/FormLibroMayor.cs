@@ -14,47 +14,55 @@ namespace SistemaContableV1
     public partial class FormLibroMayor : Form
     {
 
-        Blockchain blockchainAsientos;
+        private Blockchain blockchainAsientos;
 
         public FormLibroMayor()
-        {  
+        {
             InitializeComponent();
         }
+
+        private void btnEnviar_Click(object sender, EventArgs e)
+        {
+
+
+        }
+
 
         /*public void recibirBlockchain(Blockchain blockchain)
         {
             blockchainAsientos = blockchain;
         }*/
-        
-        private void btnMayorUnaCuenta_Click(object sender, EventArgs e)
+
+
+        /*DateTime fechaInicio = dateTimeFechaInicio.Value;
+        DateTime fechaFinal = dateTimeFechaFin.Value;
+        string nombreCuenta = txtCuentaMayor.Text;
+        decimal saldoAcumulado = 0;
+
+        foreach (Block bloque in blockchainAsientos.Cadena)
         {
-
-            DateTime fechaInicio = dateTimeFechaInicio.Value;
-            DateTime fechaFinal = dateTimeFechaFin.Value;
-            string nombreCuenta = txtCuentaMayor.Text;
-            decimal saldoAcumulado = 0;
-
-            foreach (Block bloque in blockchainAsientos.Cadena)
+            if (bloque.TimeStamp >= fechaInicio && bloque.TimeStamp <= fechaFinal)
             {
-                if (bloque.TimeStamp >= fechaInicio && bloque.TimeStamp <= fechaFinal)
+                foreach (Cuenta cuenta in bloque.Data.cuentasDebe)
                 {
-                    foreach (Cuenta cuenta in bloque.Data.cuentasDebe)
+                    if (cuenta.nombreCuenta == nombreCuenta)
                     {
-                        if (cuenta.nombreCuenta == nombreCuenta)
-                        {
-                            saldoAcumulado += cuenta.saldoDebe;
-                        }
+                        saldoAcumulado += cuenta.saldoDebe;
                     }
-                    foreach (Cuenta cuenta in bloque.Data.cuentasHaber)
+                }
+                foreach (Cuenta cuenta in bloque.Data.cuentasHaber)
+                {
+                    if (cuenta.nombreCuenta == nombreCuenta)
                     {
-                        if (cuenta.nombreCuenta == nombreCuenta)
-                        {
-                            saldoAcumulado -= cuenta.saldoHaber;
-                        }
+                        saldoAcumulado -= cuenta.saldoHaber;
                     }
                 }
             }
-            MessageBox.Show("Saldo: " + saldoAcumulado);
         }
+        MessageBox.Show("Saldo: " + saldoAcumulado); */
+
+
+
+
     }
 }

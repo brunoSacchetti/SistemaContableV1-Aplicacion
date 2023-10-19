@@ -32,11 +32,14 @@
             label1 = new Label();
             label2 = new Label();
             dateTimeFechaFin = new DateTimePicker();
-            btnMayorUnaCuenta = new Button();
+            btnEnviar = new Button();
             txtCuentaMayor = new TextBox();
             label3 = new Label();
             label4 = new Label();
             button1 = new Button();
+            listDebe = new ListView();
+            listHaber = new ListView();
+            label5 = new Label();
             SuspendLayout();
             // 
             // dateTimeFechaInicio
@@ -71,15 +74,15 @@
             dateTimeFechaFin.Size = new Size(215, 23);
             dateTimeFechaFin.TabIndex = 3;
             // 
-            // btnMayorUnaCuenta
+            // btnEnviar
             // 
-            btnMayorUnaCuenta.Location = new Point(448, 177);
-            btnMayorUnaCuenta.Name = "btnMayorUnaCuenta";
-            btnMayorUnaCuenta.Size = new Size(120, 53);
-            btnMayorUnaCuenta.TabIndex = 4;
-            btnMayorUnaCuenta.Text = "Consultar Libro Mayor de la cuenta SELECCIONADA";
-            btnMayorUnaCuenta.UseVisualStyleBackColor = true;
-            btnMayorUnaCuenta.Click += btnMayorUnaCuenta_Click;
+            btnEnviar.Location = new Point(628, 170);
+            btnEnviar.Name = "btnEnviar";
+            btnEnviar.Size = new Size(120, 53);
+            btnEnviar.TabIndex = 4;
+            btnEnviar.Text = "Enviar";
+            btnEnviar.UseVisualStyleBackColor = true;
+            btnEnviar.Click += btnEnviar_Click;
             // 
             // txtCuentaMayor
             // 
@@ -109,23 +112,51 @@
             // 
             // button1
             // 
-            button1.Location = new Point(305, 177);
+            button1.Location = new Point(706, 287);
             button1.Name = "button1";
             button1.Size = new Size(120, 54);
             button1.TabIndex = 8;
-            button1.Text = "Consultar Libro Mayor de todas las cuentas";
+            button1.Text = "Libro Mayor de Todas las Cuentas";
             button1.UseVisualStyleBackColor = true;
+            // 
+            // listDebe
+            // 
+            listDebe.Location = new Point(12, 237);
+            listDebe.Name = "listDebe";
+            listDebe.Size = new Size(135, 165);
+            listDebe.TabIndex = 9;
+            listDebe.UseCompatibleStateImageBehavior = false;
+            // 
+            // listHaber
+            // 
+            listHaber.Location = new Point(180, 237);
+            listHaber.Name = "listHaber";
+            listHaber.Size = new Size(135, 165);
+            listHaber.TabIndex = 10;
+            listHaber.UseCompatibleStateImageBehavior = false;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(52, 208);
+            label5.Name = "label5";
+            label5.Size = new Size(38, 15);
+            label5.TabIndex = 11;
+            label5.Text = "label5";
             // 
             // FormLibroMayor
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(862, 450);
+            Controls.Add(label5);
+            Controls.Add(listHaber);
+            Controls.Add(listDebe);
             Controls.Add(button1);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(txtCuentaMayor);
-            Controls.Add(btnMayorUnaCuenta);
+            Controls.Add(btnEnviar);
             Controls.Add(dateTimeFechaFin);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -137,15 +168,17 @@
         }
 
         #endregion
-
-        private DateTimePicker dateTimeFechaInicio;
         private Label label1;
         private Label label2;
-        private DateTimePicker dateTimeFechaFin;
-        private Button btnMayorUnaCuenta;
-        private TextBox txtCuentaMayor;
+        private Button btnEnviar;
         private Label label3;
         private Label label4;
         private Button button1;
+        public DateTimePicker dateTimeFechaInicio;
+        public DateTimePicker dateTimeFechaFin;
+        public TextBox txtCuentaMayor;
+        private ListView listDebe;
+        private ListView listHaber;
+        private Label label5;
     }
 }

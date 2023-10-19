@@ -9,7 +9,7 @@ namespace SistemaContableV1.Clases
     internal class Blockchain
     {
         // Donde se almacena la cadena de bloques
-        public IList<Block> Cadena { set; get; }
+        public IList<Block> Cadena { get; set; }
 
         public Blockchain()
         {
@@ -67,6 +67,22 @@ namespace SistemaContableV1.Clases
                 }
             }
             return true;
+        }
+
+        public List<AsientoContable> GetBlocksInRange(DateTime fechaInicio, DateTime fechaFin)
+        {
+            List<AsientoContable> asientosEnRango = new List<AsientoContable>();
+
+            foreach (var bloque in Cadena)
+            {
+                if (bloque.TimeStamp >= fechaInicio && bloque.TimeStamp <= fechaFin)
+                {
+                    asientosEnRango.Add(bloque.Data);
+                }
+            }
+
+            return asientosEnRango;
+
         }
     }
 }

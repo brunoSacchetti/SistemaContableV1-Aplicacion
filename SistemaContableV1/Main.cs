@@ -59,7 +59,7 @@ namespace SistemaContableV1
 
         private void btnLibroMayor_Click(object sender, EventArgs e)
         {
-            
+
         }
     }
 }
