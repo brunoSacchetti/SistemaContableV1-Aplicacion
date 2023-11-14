@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace SistemaContableV1.Clases
 {
-    internal class AsientoContable
+    public class AsientoContable
     {
-        public List<Cuenta> cuentasDebe;
-        public List<Cuenta> cuentasHaber;
+        public List<Cuenta> cuentasDebe = new List<Cuenta>();
+        public List<Cuenta> cuentasHaber = new List<Cuenta>();
 
         public AsientoContable() { }
 

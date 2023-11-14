@@ -37,9 +37,10 @@
             label3 = new Label();
             label4 = new Label();
             button1 = new Button();
-            listDebe = new ListView();
-            listHaber = new ListView();
+            listBoxDebe = new ListView();
+            listBoxHaber = new ListView();
             label5 = new Label();
+            comboBox1 = new ComboBox();
             SuspendLayout();
             // 
             // dateTimeFechaInicio
@@ -112,28 +113,28 @@
             // 
             // button1
             // 
-            button1.Location = new Point(706, 287);
+            button1.Location = new Point(628, 282);
             button1.Name = "button1";
             button1.Size = new Size(120, 54);
             button1.TabIndex = 8;
             button1.Text = "Libro Mayor de Todas las Cuentas";
             button1.UseVisualStyleBackColor = true;
             // 
-            // listDebe
+            // listBoxDebe
             // 
-            listDebe.Location = new Point(12, 237);
-            listDebe.Name = "listDebe";
-            listDebe.Size = new Size(135, 165);
-            listDebe.TabIndex = 9;
-            listDebe.UseCompatibleStateImageBehavior = false;
+            listBoxDebe.Location = new Point(12, 237);
+            listBoxDebe.Name = "listBoxDebe";
+            listBoxDebe.Size = new Size(135, 165);
+            listBoxDebe.TabIndex = 9;
+            listBoxDebe.UseCompatibleStateImageBehavior = false;
             // 
-            // listHaber
+            // listBoxHaber
             // 
-            listHaber.Location = new Point(180, 237);
-            listHaber.Name = "listHaber";
-            listHaber.Size = new Size(135, 165);
-            listHaber.TabIndex = 10;
-            listHaber.UseCompatibleStateImageBehavior = false;
+            listBoxHaber.Location = new Point(180, 237);
+            listBoxHaber.Name = "listBoxHaber";
+            listBoxHaber.Size = new Size(135, 165);
+            listBoxHaber.TabIndex = 10;
+            listBoxHaber.UseCompatibleStateImageBehavior = false;
             // 
             // label5
             // 
@@ -144,14 +145,23 @@
             label5.TabIndex = 11;
             label5.Text = "label5";
             // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(349, 245);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(121, 23);
+            comboBox1.TabIndex = 12;
+            // 
             // FormLibroMayor
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(862, 450);
+            ClientSize = new Size(862, 525);
+            Controls.Add(comboBox1);
             Controls.Add(label5);
-            Controls.Add(listHaber);
-            Controls.Add(listDebe);
+            Controls.Add(listBoxHaber);
+            Controls.Add(listBoxDebe);
             Controls.Add(button1);
             Controls.Add(label4);
             Controls.Add(label3);
@@ -177,8 +187,9 @@
         public DateTimePicker dateTimeFechaInicio;
         public DateTimePicker dateTimeFechaFin;
         public TextBox txtCuentaMayor;
-        private ListView listDebe;
-        private ListView listHaber;
+        private ListView listBoxDebe;
+        private ListView listBoxHaber;
         private Label label5;
+        private ComboBox comboBox1;
     }
 }

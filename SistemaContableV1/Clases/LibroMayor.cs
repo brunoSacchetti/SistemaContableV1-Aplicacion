@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SistemaContableV1.Clases
 {
-    internal class LibroMayor
+    public class LibroMayor
     {
     }
 }

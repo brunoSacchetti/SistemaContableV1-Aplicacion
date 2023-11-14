@@ -1,4 +1,5 @@
-﻿using SistemaContableV1.Clases;
+﻿using MySql.Data.MySqlClient;
+using SistemaContableV1.Clases;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace SistemaContableV1
 {
@@ -16,16 +18,40 @@ namespace SistemaContableV1
 
         private Blockchain blockchainAsientos;
 
-        public FormLibroMayor()
-        {
-            InitializeComponent();
-        }
-
         private void btnEnviar_Click(object sender, EventArgs e)
         {
 
 
         }
+
+        Blockchain asientos;
+        List<Cuenta> cuentas;
+        MySqlConnection connection; // Asumiendo que tienes una clase MySqlConnection para gestionar la conexión MySQL
+
+        public FormLibroMayor()
+        {
+            InitializeComponent();
+            // Inicializa tu conexión a MySQL
+            
+        }
+
+        
+        private void FormLibroMayor_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            connection.Close();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         /*public void recibirBlockchain(Blockchain blockchain)

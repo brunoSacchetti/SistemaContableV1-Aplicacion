@@ -7,8 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Microsoft.Office.Interop.Excel;
+using System.Xml;
+using MySql.Data.MySqlClient;
+using MongoDB.Driver;
 using SistemaContableV1.Clases;
+using MongoDB.Bson.Serialization.Attributes;
+using MongoDB.Bson;
 
 namespace SistemaContableV1
 {
@@ -16,13 +20,38 @@ namespace SistemaContableV1
     {
 
 
-        Blockchain blockchainAsientos = new Blockchain();
+        Blockchain blockchainAsientos;
+        IMongoCollection<Blockchain> blockChain;
+        IMongoDatabase database;
 
         public FormLibroDiario()
         {
             InitializeComponent();
 
         }
+
+        private void FormLibroDiario_Load(object sender, EventArgs e)
+        {
+            var client = new MongoClient("mongodb://localhost:27017/");
+            database = client.GetDatabase("Blockchain");
+
+            blockChain = database.GetCollection<Blockchain>("blockchainAsientos");
+            // asiganamos los valores de las colecciones a variables
+            blockchainAsientos = blockChain.Find(d => true).FirstOrDefault();
+
+            //var firstDocument = blockChain.Find(d => true).FirstOrDefault();
+            //var firstDocument = blockChain.Find(d => true).First();
+
+            if (blockchainAsientos == null)
+            {
+                blockchainAsientos = new Blockchain();
+            }
+
+        }
+
+
+
+        
 
         private void btnImportarCuenta_Click(object sender, EventArgs e)
         {
@@ -89,6 +118,8 @@ namespace SistemaContableV1
 
             List<Cuenta> debe = new List<Cuenta>();
             List<Cuenta> haber = new List<Cuenta>();
+            AsientoContable asientoContable = new AsientoContable();
+
 
             foreach (DataGridViewRow fila in dataLibroDiario.Rows)
             {
@@ -109,12 +140,14 @@ namespace SistemaContableV1
 
                     if (cuenta.saldoDebe == 0 || string.IsNullOrWhiteSpace(fila.Cells["Debe"].Value.ToString()))
                     {
-                        haber.Add(cuenta);
+                        //haber.Add(cuenta);
+                        asientoContable.cuentasHaber.Add(cuenta);
                         MessageBox.Show("ESTOY EN EL HABER");
                     }
                     else if (cuenta.saldoHaber == 0 || string.IsNullOrWhiteSpace(fila.Cells["Haber"].Value.ToString()))
                     {
-                        debe.Add(cuenta);
+                        //debe.Add(cuenta);
+                        asientoContable.cuentasDebe.Add(cuenta);
                         MessageBox.Show("ESTOY EN EL DEBE");
                     }
 
@@ -129,13 +162,22 @@ namespace SistemaContableV1
 
             }
 
-            AsientoContable asientoContable = new AsientoContable(debe, haber);
+            //AsientoContable asientoContable = new AsientoContable(debe, haber);
 
-            if (debe.Count > 0 || haber.Count > 0)
+            //if (debe.Count > 0 || haber.Count > 0)
+            if(asientoContable.cuentasDebe.Count > 0 || asientoContable.cuentasHaber.Count > 0)
             {
                 try
                 {
                     blockchainAsientos.AddBlock(new Block(DateTime.Now, null, asientoContable));
+                    blockChain.FindOneAndDelete(database => true);
+                    
+                    blockChain.InsertOne(blockchainAsientos);
+
+                    //blockChain.ReplaceOne(d => true, blockchainAsientos);
+
+
+
                     MessageBox.Show("Se agrego correctamente el asiento a la BLOCKCHAIN");
                 }
                 catch (Exception ex)
@@ -148,106 +190,11 @@ namespace SistemaContableV1
                 MessageBox.Show("Debe ingresar al menos una cuenta para poder guardar el asiento en la BLOCKCHAIN");
             }
 
+
+
             dataLibroDiario.Rows.Clear();
             debe.Clear();
             haber.Clear();
-        }
-
-
-
-        private void btnLibroMayor_Click(object sender, EventArgs e)
-        {
-
-            /*DateTime fechaInicio = dateTimePicker1.Value;//dateTimeFechaInicio.Value;
-            DateTime fechaFinal = dateTimePicker2.Value;//dateTimeFechaFin.Value;
-            string nombreCuenta = textBox1.Text;//txtCuentaMayor.Text;
-            decimal saldoAcumulado = 0;
-
-            foreach (Block bloque in blockchainAsientos.Cadena)
-            {
-                if (bloque.TimeStamp >= fechaInicio && bloque.TimeStamp <= fechaFinal)
-                {
-                    foreach (Cuenta cuenta in bloque.Data.cuentasDebe)
-                    {
-                        if (cuenta.nombreCuenta == nombreCuenta)
-                        {
-                            saldoAcumulado += cuenta.saldoDebe;
-                            MessageBox.Show("Estoy en el debe mayor");
-                        }
-                    }
-                    foreach (Cuenta cuenta in bloque.Data.cuentasHaber)
-                    {
-                        if (cuenta.nombreCuenta == nombreCuenta)
-                        {
-                            saldoAcumulado -= cuenta.saldoHaber;
-                            MessageBox.Show("Estoy en el haber mayor");
-                        }
-                    }
-                }
-            }
-            MessageBox.Show("Saldo: " + saldoAcumulado);*/
-            
-            // ---------------------------------------------------
-
-            string cuentaBuscada = textBox1.Text;
-            DateTime fechaInicio = dateTimePicker1.Value;
-            DateTime fechaFin = dateTimePicker2.Value;
-
-            // Filtra las transacciones dentro del rango de fechas
-            List<AsientoContable> transaccionesFiltradas = blockchainAsientos.GetBlocksInRange(fechaInicio, fechaFin);
-
-            if (!string.IsNullOrEmpty(cuentaBuscada))
-            {
-                // Filtra las transacciones que corresponden a la cuenta buscada
-                transaccionesFiltradas = transaccionesFiltradas
-                    .Where(asiento => asiento.ContieneCuenta(cuentaBuscada))
-                    .ToList();
-            }
-
-            // Calcula el libro mayor
-            Dictionary<string, decimal> libroMayor = new Dictionary<string, decimal>();
-            foreach (var asiento in transaccionesFiltradas)
-            {
-                foreach (var cuenta in asiento.cuentasDebe)
-                {
-                    if (!libroMayor.ContainsKey(cuenta.nombreCuenta))
-                        libroMayor[cuenta.nombreCuenta] = 0;
-
-                    libroMayor[cuenta.nombreCuenta] += cuenta.saldoDebe;
-                }
-
-                foreach (var cuenta in asiento.cuentasHaber)
-                {
-                    if (!libroMayor.ContainsKey(cuenta.nombreCuenta))
-                        libroMayor[cuenta.nombreCuenta] = 0;
-
-                    libroMayor[cuenta.nombreCuenta] -= cuenta.saldoHaber;
-                }
-            }
-
-            // Muestra el libro mayor en un control (puede ser un DataGridView, ListBox, etc.)
-            // Por ejemplo, si usas un DataGridView llamado dataLibroMayor:
-            dataGridView1.Rows.Clear();
-            foreach (var kvp in libroMayor)
-            {
-                dataGridView1.Rows.Add(kvp.Key, kvp.Value);
-            }
-            MessageBox.Show("FIN");
-        }
-
-        private void btnBlockchain_Click(object sender, EventArgs e)
-        {
-            foreach (Block block in blockchainAsientos.Cadena)
-            {
-
-                MessageBox.Show("Date" + block.TimeStamp.ToString());
-                MessageBox.Show("HASH" + block.Hash.ToString());
-                MessageBox.Show("INDEX" + block.Index.ToString());
-                MessageBox.Show("ASIENTO" + block.Data);
-
-
-
-            }
         }
     }
 }

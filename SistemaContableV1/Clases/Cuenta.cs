@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SistemaContableV1.Clases
 {
-    internal class Cuenta
+    public class Cuenta
     {
         //public string _id { get; set; }
         public string nombreCuenta { get; set; }

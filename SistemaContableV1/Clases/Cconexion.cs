@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SistemaContableV1.Clases
 {
-    internal class Cconexion
+    public class Cconexion
     {
         MySqlConnection conex = new MySqlConnection();
         static string servidor = "localhost";

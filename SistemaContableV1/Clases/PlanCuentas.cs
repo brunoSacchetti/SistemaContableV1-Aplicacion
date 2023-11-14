@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SistemaContableV1.Clases
 {
-    internal class PlanCuentas
+    public class PlanCuentas
     {
         public void mostrarCuentas(DataGridView tablaCuentas)
         {

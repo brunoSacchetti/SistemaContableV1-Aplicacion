@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SistemaContableV1.Clases
 {
-    internal class Empresa
+    public class Empresa
     {
         private string nombre { get; set; }
         private string telefono { get; set; }

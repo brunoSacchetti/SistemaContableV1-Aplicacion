@@ -137,7 +137,6 @@
             btnLibroMayor.TabIndex = 5;
             btnLibroMayor.Text = "Libro Mayor";
             btnLibroMayor.UseVisualStyleBackColor = true;
-            btnLibroMayor.Click += btnLibroMayor_Click;
             // 
             // dateTimePicker1
             // 
@@ -168,7 +167,6 @@
             btnBlockchain.TabIndex = 9;
             btnBlockchain.Text = "RECORRER BLOCKCHAIN";
             btnBlockchain.UseVisualStyleBackColor = true;
-            btnBlockchain.Click += btnBlockchain_Click;
             // 
             // dataGridView1
             // 
@@ -199,6 +197,7 @@
             Controls.Add(dataLibroDiario);
             Name = "FormLibroDiario";
             Text = "LibroDiario";
+            Load += FormLibroDiario_Load;
             ((System.ComponentModel.ISupportInitialize)dataLibroDiario).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataCuentas).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
