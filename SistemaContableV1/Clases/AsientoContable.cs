@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,7 +20,7 @@ namespace SistemaContableV1.Clases
             this.cuentasHaber = cuentasHaber;
         }
 
-        public bool ContieneCuenta(string cuentaBuscada)
+        public bool ContieneCuentaDebe(string cuentaBuscada)
         {
             foreach (Cuenta cuenta in cuentasDebe)
             {
@@ -29,6 +30,11 @@ namespace SistemaContableV1.Clases
                 }
             }
 
+            return false;
+        }
+
+        public bool ContieneCuentaHaber(string cuentaBuscada)
+        {
             foreach (Cuenta cuenta in cuentasHaber)
             {
                 if (cuenta.nombreCuenta.Equals(cuentaBuscada, StringComparison.OrdinalIgnoreCase))
@@ -39,5 +45,26 @@ namespace SistemaContableV1.Clases
 
             return false;
         }
+
+        /*public string ObtenerCuenta(string cuentaBuscada)
+        {
+            foreach (Cuenta cuenta in cuentasDebe)
+            {
+                if (cuenta.nombreCuenta.Equals(cuentaBuscada, StringComparison.OrdinalIgnoreCase))
+                {
+                    return cuenta.nombreCuenta;
+                }
+            }
+
+            foreach (Cuenta cuenta in cuentasHaber)
+            {
+                if (cuenta.nombreCuenta.Equals(cuentaBuscada, StringComparison.OrdinalIgnoreCase))
+                {
+                    return cuenta.nombreCuenta;
+                }
+            }
+
+            return null; // Devuelve null si la cuenta no se encuentra en ninguna lista.
+        }*/
     }
 }

@@ -17,5 +17,6 @@ namespace SistemaContableV1
             InitializeComponent();
             this.TopLevel = false; // Establece TopLevel en false
         }
+
     }
 }

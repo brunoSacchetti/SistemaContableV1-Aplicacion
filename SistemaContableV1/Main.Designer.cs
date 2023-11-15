@@ -29,6 +29,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             panel = new Panel();
             label1 = new Label();
             btnRegistrarEmpresa = new Button();
@@ -40,10 +41,11 @@
             // panel
             // 
             panel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel.BackColor = SystemColors.ActiveBorder;
             panel.BorderStyle = BorderStyle.FixedSingle;
             panel.Location = new Point(150, 73);
             panel.Name = "panel";
-            panel.Size = new Size(1038, 634);
+            panel.Size = new Size(1068, 733);
             panel.TabIndex = 0;
             // 
             // label1
@@ -58,57 +60,70 @@
             // 
             // btnRegistrarEmpresa
             // 
-            btnRegistrarEmpresa.Location = new Point(21, 73);
+            btnRegistrarEmpresa.BackColor = Color.LightBlue;
+            btnRegistrarEmpresa.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            btnRegistrarEmpresa.ForeColor = Color.Black;
+            btnRegistrarEmpresa.Location = new Point(16, 73);
             btnRegistrarEmpresa.Name = "btnRegistrarEmpresa";
-            btnRegistrarEmpresa.Size = new Size(86, 63);
+            btnRegistrarEmpresa.Size = new Size(119, 74);
             btnRegistrarEmpresa.TabIndex = 1;
             btnRegistrarEmpresa.Text = "Registrar Empresa";
-            btnRegistrarEmpresa.UseVisualStyleBackColor = true;
+            btnRegistrarEmpresa.UseVisualStyleBackColor = false;
             btnRegistrarEmpresa.Click += btnRegistrarEmpresa_Click;
             // 
             // btnLibroDiario
             // 
-            btnLibroDiario.Location = new Point(21, 284);
+            btnLibroDiario.BackColor = Color.LightBlue;
+            btnLibroDiario.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            btnLibroDiario.ForeColor = Color.Black;
+            btnLibroDiario.Location = new Point(16, 413);
             btnLibroDiario.Name = "btnLibroDiario";
-            btnLibroDiario.Size = new Size(86, 65);
+            btnLibroDiario.Size = new Size(119, 70);
             btnLibroDiario.TabIndex = 2;
             btnLibroDiario.Text = "Libro Diario";
-            btnLibroDiario.UseVisualStyleBackColor = true;
+            btnLibroDiario.UseVisualStyleBackColor = false;
             btnLibroDiario.Click += btnLibroDiario_Click;
             // 
             // btnPlanCuenta
             // 
-            btnPlanCuenta.Location = new Point(21, 177);
+            btnPlanCuenta.BackColor = Color.LightBlue;
+            btnPlanCuenta.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            btnPlanCuenta.ForeColor = Color.Black;
+            btnPlanCuenta.Location = new Point(16, 245);
             btnPlanCuenta.Name = "btnPlanCuenta";
-            btnPlanCuenta.Size = new Size(86, 62);
+            btnPlanCuenta.Size = new Size(119, 79);
             btnPlanCuenta.TabIndex = 3;
             btnPlanCuenta.Text = "Plan de Cuentas";
-            btnPlanCuenta.UseVisualStyleBackColor = true;
+            btnPlanCuenta.UseVisualStyleBackColor = false;
             btnPlanCuenta.Click += btnPlanCuenta_Click;
             // 
             // btnLibroMayor
             // 
-            btnLibroMayor.Location = new Point(21, 385);
+            btnLibroMayor.BackColor = Color.LightBlue;
+            btnLibroMayor.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            btnLibroMayor.ForeColor = Color.Black;
+            btnLibroMayor.Location = new Point(16, 568);
             btnLibroMayor.Name = "btnLibroMayor";
-            btnLibroMayor.Size = new Size(90, 65);
+            btnLibroMayor.Size = new Size(119, 70);
             btnLibroMayor.TabIndex = 4;
             btnLibroMayor.TabStop = false;
             btnLibroMayor.Text = "Libro Mayor";
-            btnLibroMayor.UseVisualStyleBackColor = true;
+            btnLibroMayor.UseVisualStyleBackColor = false;
             btnLibroMayor.Click += btnLibroMayor_Click;
             // 
             // Main
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.AppWorkspace;
-            ClientSize = new Size(1200, 719);
+            BackColor = SystemColors.Control;
+            ClientSize = new Size(1230, 818);
             Controls.Add(btnLibroMayor);
             Controls.Add(btnPlanCuenta);
             Controls.Add(btnLibroDiario);
             Controls.Add(btnRegistrarEmpresa);
             Controls.Add(label1);
             Controls.Add(panel);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Main";
             Text = "Sistema Contable";
             ResumeLayout(false);

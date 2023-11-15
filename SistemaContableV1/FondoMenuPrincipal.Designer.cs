@@ -29,17 +29,31 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FondoMenuPrincipal));
+            pictureBox1 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.bg;
+            resources.ApplyResources(pictureBox1, "pictureBox1");
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.TabStop = false;
             // 
             // FondoMenuPrincipal
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ActiveCaption;
+            BackColor = SystemColors.ScrollBar;
+            Controls.Add(pictureBox1);
             Name = "FondoMenuPrincipal";
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private PictureBox pictureBox1;
     }
 }

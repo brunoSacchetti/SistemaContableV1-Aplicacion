@@ -51,7 +51,7 @@ namespace SistemaContableV1
 
 
 
-        
+
 
         private void btnImportarCuenta_Click(object sender, EventArgs e)
         {
@@ -162,16 +162,20 @@ namespace SistemaContableV1
 
             }
 
+            //fecha del asiento
+            DateTime fechaAsiento = dateAsiento.Value;
+
             //AsientoContable asientoContable = new AsientoContable(debe, haber);
 
             //if (debe.Count > 0 || haber.Count > 0)
-            if(asientoContable.cuentasDebe.Count > 0 || asientoContable.cuentasHaber.Count > 0)
+            if (asientoContable.cuentasDebe.Count > 0 || asientoContable.cuentasHaber.Count > 0)
             {
                 try
                 {
-                    blockchainAsientos.AddBlock(new Block(DateTime.Now, null, asientoContable));
+                    //blockchainAsientos.AddBlock(new Block(DateTime.Now, null, asientoContable));
+                    blockchainAsientos.AddBlock(new Block(fechaAsiento, null, asientoContable));
                     blockChain.FindOneAndDelete(database => true);
-                    
+
                     blockChain.InsertOne(blockchainAsientos);
 
                     //blockChain.ReplaceOne(d => true, blockchainAsientos);

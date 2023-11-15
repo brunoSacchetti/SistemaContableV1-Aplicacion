@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormLibroDiario));
             dataLibroDiario = new DataGridView();
             cod = new DataGridViewTextBoxColumn();
             cuentas = new DataGridViewTextBoxColumn();
@@ -41,8 +42,9 @@
             dateTimePicker1 = new DateTimePicker();
             dateTimePicker2 = new DateTimePicker();
             textBox1 = new TextBox();
-            btnBlockchain = new Button();
             dataGridView1 = new DataGridView();
+            label1 = new Label();
+            dateAsiento = new DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)dataLibroDiario).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataCuentas).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -55,7 +57,7 @@
             dataLibroDiario.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataLibroDiario.Columns.AddRange(new DataGridViewColumn[] { cod, cuentas, debe, haber });
             dataLibroDiario.GridColor = SystemColors.ButtonFace;
-            dataLibroDiario.Location = new Point(12, 12);
+            dataLibroDiario.Location = new Point(12, 19);
             dataLibroDiario.Name = "dataLibroDiario";
             dataLibroDiario.RowTemplate.Height = 25;
             dataLibroDiario.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -94,7 +96,7 @@
             dataCuentas.Name = "dataCuentas";
             dataCuentas.ReadOnly = true;
             dataCuentas.RowTemplate.Height = 25;
-            dataCuentas.Size = new Size(363, 509);
+            dataCuentas.Size = new Size(394, 509);
             dataCuentas.TabIndex = 1;
             dataCuentas.CellClick += dataCuentas_CellClick;
             dataCuentas.CellDoubleClick += dataCuentas_CellDoubleClick;
@@ -103,7 +105,7 @@
             // 
             btnImportarCuenta.Location = new Point(711, 12);
             btnImportarCuenta.Name = "btnImportarCuenta";
-            btnImportarCuenta.Size = new Size(253, 23);
+            btnImportarCuenta.Size = new Size(301, 23);
             btnImportarCuenta.TabIndex = 2;
             btnImportarCuenta.Text = "Importar Cuentas";
             btnImportarCuenta.UseVisualStyleBackColor = true;
@@ -111,7 +113,7 @@
             // 
             // btnEliminaCuenta
             // 
-            btnEliminaCuenta.Location = new Point(12, 556);
+            btnEliminaCuenta.Location = new Point(62, 647);
             btnEliminaCuenta.Name = "btnEliminaCuenta";
             btnEliminaCuenta.Size = new Size(181, 23);
             btnEliminaCuenta.TabIndex = 3;
@@ -121,7 +123,7 @@
             // 
             // btnGuardarAsiento
             // 
-            btnGuardarAsiento.Location = new Point(301, 556);
+            btnGuardarAsiento.Location = new Point(277, 636);
             btnGuardarAsiento.Name = "btnGuardarAsiento";
             btnGuardarAsiento.Size = new Size(155, 45);
             btnGuardarAsiento.TabIndex = 4;
@@ -140,9 +142,9 @@
             // 
             // dateTimePicker1
             // 
-            dateTimePicker1.Location = new Point(301, 618);
+            dateTimePicker1.Location = new Point(377, 813);
             dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(200, 23);
+            dateTimePicker1.Size = new Size(229, 23);
             dateTimePicker1.TabIndex = 6;
             // 
             // dateTimePicker2
@@ -159,24 +161,33 @@
             textBox1.Size = new Size(100, 23);
             textBox1.TabIndex = 8;
             // 
-            // btnBlockchain
-            // 
-            btnBlockchain.Location = new Point(649, 578);
-            btnBlockchain.Name = "btnBlockchain";
-            btnBlockchain.Size = new Size(191, 23);
-            btnBlockchain.TabIndex = 9;
-            btnBlockchain.Text = "RECORRER BLOCKCHAIN";
-            btnBlockchain.UseVisualStyleBackColor = true;
-            // 
             // dataGridView1
             // 
             dataGridView1.BackgroundColor = SystemColors.ButtonFace;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(409, 685);
+            dataGridView1.Location = new Point(726, 677);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowTemplate.Height = 25;
             dataGridView1.Size = new Size(286, 191);
             dataGridView1.TabIndex = 10;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.ForeColor = SystemColors.WindowText;
+            label1.Location = new Point(44, 565);
+            label1.Name = "label1";
+            label1.Size = new Size(163, 24);
+            label1.TabIndex = 11;
+            label1.Text = "Fecha del Asiento";
+            // 
+            // dateAsiento
+            // 
+            dateAsiento.Location = new Point(232, 565);
+            dateAsiento.Name = "dateAsiento";
+            dateAsiento.Size = new Size(216, 23);
+            dateAsiento.TabIndex = 12;
             // 
             // FormLibroDiario
             // 
@@ -184,8 +195,9 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveBorder;
             ClientSize = new Size(1055, 906);
+            Controls.Add(dateAsiento);
+            Controls.Add(label1);
             Controls.Add(dataGridView1);
-            Controls.Add(btnBlockchain);
             Controls.Add(textBox1);
             Controls.Add(dateTimePicker2);
             Controls.Add(dateTimePicker1);
@@ -195,6 +207,7 @@
             Controls.Add(dataCuentas);
             Controls.Add(btnImportarCuenta);
             Controls.Add(dataLibroDiario);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FormLibroDiario";
             Text = "LibroDiario";
             Load += FormLibroDiario_Load;
@@ -216,11 +229,12 @@
         private DataGridViewTextBoxColumn haber;
         private Button btnEliminaCuenta;
         private Button btnGuardarAsiento;
-        private Button btnBlockchain;
         public Button btnLibroMayor;
         public DateTimePicker dateTimePicker1;
         public DateTimePicker dateTimePicker2;
         public TextBox textBox1;
         public DataGridView dataGridView1;
+        private Label label1;
+        private DateTimePicker dateAsiento;
     }
 }

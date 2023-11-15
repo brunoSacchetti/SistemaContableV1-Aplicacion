@@ -13,5 +13,7 @@ namespace SistemaContableV1.Clases
         public decimal saldoDebe {  get; set; }
 
         public decimal saldoHaber { get; set; }
+
+
     }
 }

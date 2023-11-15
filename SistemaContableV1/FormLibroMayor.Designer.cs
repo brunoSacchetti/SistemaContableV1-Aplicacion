@@ -39,13 +39,19 @@
             button1 = new Button();
             listBoxDebe = new ListView();
             listBoxHaber = new ListView();
-            label5 = new Label();
-            comboBox1 = new ComboBox();
+            label6 = new Label();
+            label7 = new Label();
+            dataCuentasMayor = new DataGridView();
+            lblDebe = new Label();
+            lblHaber = new Label();
+            labelCuenta = new Label();
+            labelTotalSaldo = new Label();
+            ((System.ComponentModel.ISupportInitialize)dataCuentasMayor).BeginInit();
             SuspendLayout();
             // 
             // dateTimeFechaInicio
             // 
-            dateTimeFechaInicio.Location = new Point(12, 127);
+            dateTimeFechaInicio.Location = new Point(12, 153);
             dateTimeFechaInicio.Name = "dateTimeFechaInicio";
             dateTimeFechaInicio.Size = new Size(212, 23);
             dateTimeFechaInicio.TabIndex = 0;
@@ -53,7 +59,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(77, 96);
+            label1.Location = new Point(12, 135);
             label1.Name = "label1";
             label1.Size = new Size(70, 15);
             label1.TabIndex = 1;
@@ -62,7 +68,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(380, 96);
+            label2.Location = new Point(12, 207);
             label2.Name = "label2";
             label2.Size = new Size(57, 15);
             label2.TabIndex = 2;
@@ -70,14 +76,14 @@
             // 
             // dateTimeFechaFin
             // 
-            dateTimeFechaFin.Location = new Point(305, 127);
+            dateTimeFechaFin.Location = new Point(12, 225);
             dateTimeFechaFin.Name = "dateTimeFechaFin";
             dateTimeFechaFin.Size = new Size(215, 23);
             dateTimeFechaFin.TabIndex = 3;
             // 
             // btnEnviar
             // 
-            btnEnviar.Location = new Point(628, 170);
+            btnEnviar.Location = new Point(55, 334);
             btnEnviar.Name = "btnEnviar";
             btnEnviar.Size = new Size(120, 53);
             btnEnviar.TabIndex = 4;
@@ -87,15 +93,15 @@
             // 
             // txtCuentaMayor
             // 
-            txtCuentaMayor.Location = new Point(597, 130);
+            txtCuentaMayor.Location = new Point(12, 290);
             txtCuentaMayor.Name = "txtCuentaMayor";
-            txtCuentaMayor.Size = new Size(196, 23);
+            txtCuentaMayor.Size = new Size(212, 23);
             txtCuentaMayor.TabIndex = 5;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(628, 96);
+            label3.Location = new Point(12, 272);
             label3.Name = "label3";
             label3.Size = new Size(120, 15);
             label3.TabIndex = 6;
@@ -105,7 +111,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.Location = new Point(305, 9);
+            label4.Location = new Point(440, 9);
             label4.Name = "label4";
             label4.Size = new Size(184, 37);
             label4.TabIndex = 7;
@@ -113,7 +119,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(628, 282);
+            button1.Location = new Point(440, 334);
             button1.Name = "button1";
             button1.Size = new Size(120, 54);
             button1.TabIndex = 8;
@@ -122,7 +128,7 @@
             // 
             // listBoxDebe
             // 
-            listBoxDebe.Location = new Point(12, 237);
+            listBoxDebe.Location = new Point(22, 473);
             listBoxDebe.Name = "listBoxDebe";
             listBoxDebe.Size = new Size(135, 165);
             listBoxDebe.TabIndex = 9;
@@ -130,36 +136,90 @@
             // 
             // listBoxHaber
             // 
-            listBoxHaber.Location = new Point(180, 237);
+            listBoxHaber.Location = new Point(215, 473);
             listBoxHaber.Name = "listBoxHaber";
             listBoxHaber.Size = new Size(135, 165);
             listBoxHaber.TabIndex = 10;
             listBoxHaber.UseCompatibleStateImageBehavior = false;
             // 
-            // label5
+            // label6
             // 
-            label5.AutoSize = true;
-            label5.Location = new Point(52, 208);
-            label5.Name = "label5";
-            label5.Size = new Size(38, 15);
-            label5.TabIndex = 11;
-            label5.Text = "label5";
+            label6.AutoSize = true;
+            label6.Font = new Font("Lucida Fax", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            label6.Location = new Point(12, 98);
+            label6.Name = "label6";
+            label6.Size = new Size(237, 18);
+            label6.TabIndex = 12;
+            label6.Text = "Libro Mayor de una cuenta";
             // 
-            // comboBox1
+            // label7
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(349, 245);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(121, 23);
-            comboBox1.TabIndex = 12;
+            label7.AutoSize = true;
+            label7.Font = new Font("Lucida Fax", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            label7.Location = new Point(349, 98);
+            label7.Name = "label7";
+            label7.Size = new Size(289, 18);
+            label7.TabIndex = 13;
+            label7.Text = "Libro mayor de todas las cuentas";
+            // 
+            // dataCuentasMayor
+            // 
+            dataCuentasMayor.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataCuentasMayor.Location = new Point(669, 98);
+            dataCuentasMayor.Name = "dataCuentasMayor";
+            dataCuentasMayor.RowTemplate.Height = 25;
+            dataCuentasMayor.Size = new Size(371, 600);
+            dataCuentasMayor.TabIndex = 14;
+            dataCuentasMayor.CellClick += dataCuentasMayor_CellClick_1;
+            // 
+            // lblDebe
+            // 
+            lblDebe.AutoSize = true;
+            lblDebe.Location = new Point(22, 443);
+            lblDebe.Name = "lblDebe";
+            lblDebe.Size = new Size(34, 15);
+            lblDebe.TabIndex = 15;
+            lblDebe.Text = "Debe";
+            // 
+            // lblHaber
+            // 
+            lblHaber.AutoSize = true;
+            lblHaber.Location = new Point(215, 443);
+            lblHaber.Name = "lblHaber";
+            lblHaber.Size = new Size(39, 15);
+            lblHaber.TabIndex = 16;
+            lblHaber.Text = "Haber";
+            // 
+            // labelCuenta
+            // 
+            labelCuenta.AutoSize = true;
+            labelCuenta.Location = new Point(153, 415);
+            labelCuenta.Name = "labelCuenta";
+            labelCuenta.Size = new Size(45, 15);
+            labelCuenta.TabIndex = 11;
+            labelCuenta.Text = "Cuenta";
+            // 
+            // labelTotalSaldo
+            // 
+            labelTotalSaldo.AutoSize = true;
+            labelTotalSaldo.Location = new Point(90, 666);
+            labelTotalSaldo.Name = "labelTotalSaldo";
+            labelTotalSaldo.Size = new Size(67, 15);
+            labelTotalSaldo.TabIndex = 17;
+            labelTotalSaldo.Text = "Total Saldo:";
             // 
             // FormLibroMayor
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(862, 525);
-            Controls.Add(comboBox1);
-            Controls.Add(label5);
+            ClientSize = new Size(1052, 710);
+            Controls.Add(labelTotalSaldo);
+            Controls.Add(lblHaber);
+            Controls.Add(lblDebe);
+            Controls.Add(dataCuentasMayor);
+            Controls.Add(label7);
+            Controls.Add(label6);
+            Controls.Add(labelCuenta);
             Controls.Add(listBoxHaber);
             Controls.Add(listBoxDebe);
             Controls.Add(button1);
@@ -173,6 +233,8 @@
             Controls.Add(dateTimeFechaInicio);
             Name = "FormLibroMayor";
             Text = "FormLibroMayor";
+            Load += FormLibroMayor_Load;
+            ((System.ComponentModel.ISupportInitialize)dataCuentasMayor).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -189,7 +251,12 @@
         public TextBox txtCuentaMayor;
         private ListView listBoxDebe;
         private ListView listBoxHaber;
-        private Label label5;
-        private ComboBox comboBox1;
+        private Label label6;
+        private Label label7;
+        private DataGridView dataCuentasMayor;
+        private Label lblDebe;
+        private Label lblHaber;
+        private Label labelCuenta;
+        private Label labelTotalSaldo;
     }
 }
