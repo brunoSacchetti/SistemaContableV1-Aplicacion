@@ -40,6 +40,7 @@
             btnGuardarAsiento = new Button();
             label1 = new Label();
             dateAsiento = new DateTimePicker();
+            label2 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataLibroDiario).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataCuentas).BeginInit();
             SuspendLayout();
@@ -51,7 +52,7 @@
             dataLibroDiario.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataLibroDiario.Columns.AddRange(new DataGridViewColumn[] { cod, cuentas, debe, haber });
             dataLibroDiario.GridColor = SystemColors.ButtonFace;
-            dataLibroDiario.Location = new Point(12, 19);
+            dataLibroDiario.Location = new Point(12, 73);
             dataLibroDiario.Name = "dataLibroDiario";
             dataLibroDiario.RowTemplate.Height = 25;
             dataLibroDiario.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -86,7 +87,7 @@
             dataCuentas.BackgroundColor = Color.MistyRose;
             dataCuentas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataCuentas.GridColor = Color.MediumAquamarine;
-            dataCuentas.Location = new Point(649, 41);
+            dataCuentas.Location = new Point(649, 102);
             dataCuentas.Name = "dataCuentas";
             dataCuentas.ReadOnly = true;
             dataCuentas.RowTemplate.Height = 25;
@@ -97,7 +98,7 @@
             // 
             // btnImportarCuenta
             // 
-            btnImportarCuenta.Location = new Point(711, 12);
+            btnImportarCuenta.Location = new Point(702, 73);
             btnImportarCuenta.Name = "btnImportarCuenta";
             btnImportarCuenta.Size = new Size(301, 23);
             btnImportarCuenta.TabIndex = 2;
@@ -107,7 +108,7 @@
             // 
             // btnEliminaCuenta
             // 
-            btnEliminaCuenta.Location = new Point(62, 647);
+            btnEliminaCuenta.Location = new Point(55, 678);
             btnEliminaCuenta.Name = "btnEliminaCuenta";
             btnEliminaCuenta.Size = new Size(181, 23);
             btnEliminaCuenta.TabIndex = 3;
@@ -117,7 +118,7 @@
             // 
             // btnGuardarAsiento
             // 
-            btnGuardarAsiento.Location = new Point(277, 636);
+            btnGuardarAsiento.Location = new Point(269, 667);
             btnGuardarAsiento.Name = "btnGuardarAsiento";
             btnGuardarAsiento.Size = new Size(155, 45);
             btnGuardarAsiento.TabIndex = 4;
@@ -130,7 +131,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             label1.ForeColor = SystemColors.WindowText;
-            label1.Location = new Point(44, 565);
+            label1.Location = new Point(55, 617);
             label1.Name = "label1";
             label1.Size = new Size(163, 24);
             label1.TabIndex = 11;
@@ -138,18 +139,31 @@
             // 
             // dateAsiento
             // 
-            dateAsiento.Location = new Point(232, 565);
+            dateAsiento.Location = new Point(245, 617);
             dateAsiento.Name = "dateAsiento";
             dateAsiento.Size = new Size(216, 23);
             dateAsiento.TabIndex = 12;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.BackColor = Color.White;
+            label2.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.ForeColor = Color.Black;
+            label2.Location = new Point(434, 9);
+            label2.Name = "label2";
+            label2.Size = new Size(181, 37);
+            label2.TabIndex = 13;
+            label2.Text = "LIBRO DIARIO";
             // 
             // FormLibroDiario
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveBorder;
-            BackgroundImage = Properties.Resources.pexels_steve_johnson_1006060;
+            BackgroundImage = Properties.Resources.redimDiario;
             ClientSize = new Size(1055, 724);
+            Controls.Add(label2);
             Controls.Add(dateAsiento);
             Controls.Add(label1);
             Controls.Add(btnGuardarAsiento);
@@ -181,5 +195,6 @@
         private Button btnGuardarAsiento;
         private Label label1;
         private DateTimePicker dateAsiento;
+        private Label label2;
     }
 }

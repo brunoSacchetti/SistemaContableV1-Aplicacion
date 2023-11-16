@@ -103,6 +103,16 @@ namespace SistemaContableV1.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap pexels_pavel_danilyuk_7654579 {
+            get {
+                object obj = ResourceManager.GetObject("pexels-pavel-danilyuk-7654579", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap pexels_photo_164527 {
             get {
                 object obj = ResourceManager.GetObject("pexels-photo-164527", resourceCulture);
@@ -146,6 +156,26 @@ namespace SistemaContableV1.Properties {
         internal static System.Drawing.Bitmap pexels_tbee_82256 {
             get {
                 object obj = ResourceManager.GetObject("pexels-tbee-82256", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap redimDiario {
+            get {
+                object obj = ResourceManager.GetObject("redimDiario", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap redimMayor {
+            get {
+                object obj = ResourceManager.GetObject("redimMayor", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

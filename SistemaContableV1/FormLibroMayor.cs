@@ -218,18 +218,18 @@ namespace SistemaContableV1
 
                     if (tDebe > tHaber)
                     {
-                        
+
                         dataTodasLasCuentas.Rows.Add(cuenta, tDebe - tHaber, 0);
                     }
                     else if (tDebe < tHaber)
                     {
-                        
+
                         dataTodasLasCuentas.Rows.Add(cuenta, 0, tHaber - tDebe);
                     }
                     else
                     {
-                        
-                        dataTodasLasCuentas.Rows.Add(cuenta,0,0);
+
+                        dataTodasLasCuentas.Rows.Add(cuenta, 0, 0);
                     }
 
                     montoDebe.Clear();

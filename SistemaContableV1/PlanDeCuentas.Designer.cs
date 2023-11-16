@@ -49,7 +49,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Gadugi", 21.75F, FontStyle.Italic, GraphicsUnit.Point);
-            label1.Location = new Point(153, 9);
+            label1.Location = new Point(175, 17);
             label1.Name = "label1";
             label1.Size = new Size(261, 34);
             label1.TabIndex = 0;
@@ -58,7 +58,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(213, 463);
+            label2.Location = new Point(235, 471);
             label2.Name = "label2";
             label2.Size = new Size(39, 15);
             label2.TabIndex = 2;
@@ -66,14 +66,14 @@
             // 
             // txtRubro
             // 
-            txtRubro.Location = new Point(158, 481);
+            txtRubro.Location = new Point(180, 489);
             txtRubro.Name = "txtRubro";
             txtRubro.Size = new Size(144, 23);
             txtRubro.TabIndex = 3;
             // 
             // txtCuenta
             // 
-            txtCuenta.Location = new Point(308, 481);
+            txtCuenta.Location = new Point(330, 489);
             txtCuenta.Name = "txtCuenta";
             txtCuenta.Size = new Size(163, 23);
             txtCuenta.TabIndex = 4;
@@ -81,7 +81,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(369, 463);
+            label3.Location = new Point(391, 471);
             label3.Name = "label3";
             label3.Size = new Size(45, 15);
             label3.TabIndex = 6;
@@ -89,7 +89,7 @@
             // 
             // btnGuardar
             // 
-            btnGuardar.Location = new Point(477, 481);
+            btnGuardar.Location = new Point(499, 489);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(75, 23);
             btnGuardar.TabIndex = 8;
@@ -99,7 +99,7 @@
             // 
             // btnModificar
             // 
-            btnModificar.Location = new Point(188, 524);
+            btnModificar.Location = new Point(210, 532);
             btnModificar.Name = "btnModificar";
             btnModificar.Size = new Size(75, 23);
             btnModificar.TabIndex = 9;
@@ -109,7 +109,7 @@
             // 
             // btnEliminar
             // 
-            btnEliminar.Location = new Point(272, 524);
+            btnEliminar.Location = new Point(294, 532);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(75, 23);
             btnEliminar.TabIndex = 10;
@@ -119,7 +119,7 @@
             // 
             // btnImprimir
             // 
-            btnImprimir.Location = new Point(353, 524);
+            btnImprimir.Location = new Point(375, 532);
             btnImprimir.Name = "btnImprimir";
             btnImprimir.Size = new Size(75, 23);
             btnImprimir.TabIndex = 11;
@@ -136,7 +136,7 @@
             // dPlanCuentas
             // 
             dPlanCuentas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dPlanCuentas.Location = new Point(84, 60);
+            dPlanCuentas.Location = new Point(106, 68);
             dPlanCuentas.Name = "dPlanCuentas";
             dPlanCuentas.RowTemplate.Height = 25;
             dPlanCuentas.Size = new Size(394, 386);
@@ -146,7 +146,7 @@
             // id
             // 
             id.AutoSize = true;
-            id.Location = new Point(97, 463);
+            id.Location = new Point(90, 471);
             id.Name = "id";
             id.Size = new Size(18, 15);
             id.TabIndex = 16;
@@ -154,7 +154,7 @@
             // 
             // txtIde
             // 
-            txtIde.Location = new Point(68, 481);
+            txtIde.Location = new Point(90, 489);
             txtIde.Name = "txtIde";
             txtIde.Size = new Size(74, 23);
             txtIde.TabIndex = 17;
@@ -163,8 +163,8 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.Bisque;
-            ClientSize = new Size(602, 570);
+            BackColor = SystemColors.ControlLight;
+            ClientSize = new Size(765, 571);
             Controls.Add(txtIde);
             Controls.Add(id);
             Controls.Add(dPlanCuentas);

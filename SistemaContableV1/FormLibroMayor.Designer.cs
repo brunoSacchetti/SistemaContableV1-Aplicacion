@@ -247,7 +247,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
-            BackgroundImage = Properties.Resources.istockphoto_522378269_2048x2048;
+            BackgroundImage = Properties.Resources.redimMayor;
             ClientSize = new Size(1162, 710);
             Controls.Add(dataTodasLasCuentas);
             Controls.Add(labelTotalSaldo);

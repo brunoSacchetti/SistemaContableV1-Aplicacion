@@ -25,8 +25,17 @@ namespace SistemaContableV1
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             PlanCuentas plan = new PlanCuentas();
-            plan.guardarCuentas(txtRubro, txtCuenta);
-            plan.mostrarCuentas(dPlanCuentas);
+            if (txtRubro.Text.Equals("") || txtCuenta.Text.Equals(""))
+            {
+
+                MessageBox.Show("Debe ingresar una cuenta para poder guardar");
+
+            }
+            else
+            {
+                plan.guardarCuentas(txtRubro, txtCuenta);
+                plan.mostrarCuentas(dPlanCuentas);
+            }
         }
 
         private void LimpiarTextBoxes()
@@ -38,7 +47,7 @@ namespace SistemaContableV1
         private void btnModificar_Click(object sender, EventArgs e)
         {
             PlanCuentas plan = new PlanCuentas();
-            plan.modificarCuentas(txtIde,txtRubro, txtCuenta);
+            plan.modificarCuentas(txtIde, txtRubro, txtCuenta);
             plan.mostrarCuentas(dPlanCuentas);
         }
 
