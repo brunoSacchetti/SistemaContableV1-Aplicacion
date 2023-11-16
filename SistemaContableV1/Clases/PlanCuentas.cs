@@ -55,7 +55,7 @@ namespace SistemaContableV1.Clases
             }
         }
 
-        public void seleccionarCuenta( DataGridView planCuentas,TextBox id, TextBox rubro, TextBox cuenta)
+        public void seleccionarCuenta(DataGridView planCuentas, TextBox id, TextBox rubro, TextBox cuenta)
         {
             Cconexion cconexion = new Cconexion();
 
@@ -119,5 +119,35 @@ namespace SistemaContableV1.Clases
                 MessageBox.Show("Fallo la eliminacion de la cuenta. Error: " + ex.Message);
             }
         }
-    }
+
+        public List<string> ObtenerNombresCuentas()
+        {
+            List<string> nombresCuentas = new List<string>();
+
+            Cconexion cconexion = new Cconexion();
+
+            try
+            {
+
+                string query = "SELECT cuenta FROM cuentas"; // Reemplaza con el nombre de tu tabla de cuentas
+                MySqlCommand command = new MySqlCommand(query, cconexion.establecerConexion());
+                MySqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    string nombreCuenta = reader["cuenta"].ToString();
+                    nombresCuentas.Add(nombreCuenta);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                // Manejar excepciones (puedes mostrar un mensaje, registrar el error, etc.)
+                Console.WriteLine($"Error al obtener nombres de cuentas: {ex.Message}");
+            }
+            
+            return nombresCuentas;
+        }
+
+    }      
 }

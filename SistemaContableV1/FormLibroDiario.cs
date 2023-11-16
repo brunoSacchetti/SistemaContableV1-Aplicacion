@@ -142,18 +142,18 @@ namespace SistemaContableV1
                     {
                         //haber.Add(cuenta);
                         asientoContable.cuentasHaber.Add(cuenta);
-                        MessageBox.Show("ESTOY EN EL HABER");
+                        //MessageBox.Show("ESTOY EN EL HABER");
                     }
                     else if (cuenta.saldoHaber == 0 || string.IsNullOrWhiteSpace(fila.Cells["Haber"].Value.ToString()))
                     {
                         //debe.Add(cuenta);
                         asientoContable.cuentasDebe.Add(cuenta);
-                        MessageBox.Show("ESTOY EN EL DEBE");
+                        //MessageBox.Show("ESTOY EN EL DEBE");
                     }
 
-                    MessageBox.Show("Cuenta: " + cuenta.nombreCuenta);
-                    MessageBox.Show("DEBE: " + cuenta.saldoDebe);
-                    MessageBox.Show("HABER: " + cuenta.saldoHaber);
+                    //MessageBox.Show("Cuenta: " + cuenta.nombreCuenta);
+                    //MessageBox.Show("DEBE: " + cuenta.saldoDebe);
+                    //MessageBox.Show("HABER: " + cuenta.saldoHaber);
                 }
                 catch (Exception ex)
                 {
@@ -164,6 +164,7 @@ namespace SistemaContableV1
 
             //fecha del asiento
             DateTime fechaAsiento = dateAsiento.Value;
+            asientoContable.fechaAsiento = fechaAsiento;
 
             //AsientoContable asientoContable = new AsientoContable(debe, haber);
 
@@ -173,7 +174,7 @@ namespace SistemaContableV1
                 try
                 {
                     //blockchainAsientos.AddBlock(new Block(DateTime.Now, null, asientoContable));
-                    blockchainAsientos.AddBlock(new Block(fechaAsiento, null, asientoContable));
+                    blockchainAsientos.AddBlock(new Block(DateTime.Now, null, asientoContable));
                     blockChain.FindOneAndDelete(database => true);
 
                     blockChain.InsertOne(blockchainAsientos);

@@ -36,7 +36,7 @@
             txtCuentaMayor = new TextBox();
             label3 = new Label();
             label4 = new Label();
-            button1 = new Button();
+            btnTodasCuentas = new Button();
             listBoxDebe = new ListView();
             listBoxHaber = new ListView();
             label6 = new Label();
@@ -46,7 +46,12 @@
             lblHaber = new Label();
             labelCuenta = new Label();
             labelTotalSaldo = new Label();
+            dataTodasLasCuentas = new DataGridView();
+            colCuenta = new DataGridViewTextBoxColumn();
+            colDeudor = new DataGridViewTextBoxColumn();
+            colAcreedor = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dataCuentasMayor).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataTodasLasCuentas).BeginInit();
             SuspendLayout();
             // 
             // dateTimeFechaInicio
@@ -117,14 +122,15 @@
             label4.TabIndex = 7;
             label4.Text = "LIBRO MAYOR";
             // 
-            // button1
+            // btnTodasCuentas
             // 
-            button1.Location = new Point(440, 334);
-            button1.Name = "button1";
-            button1.Size = new Size(120, 54);
-            button1.TabIndex = 8;
-            button1.Text = "Libro Mayor de Todas las Cuentas";
-            button1.UseVisualStyleBackColor = true;
+            btnTodasCuentas.Location = new Point(877, 115);
+            btnTodasCuentas.Name = "btnTodasCuentas";
+            btnTodasCuentas.Size = new Size(120, 54);
+            btnTodasCuentas.TabIndex = 8;
+            btnTodasCuentas.Text = "Libro Mayor de Todas las Cuentas";
+            btnTodasCuentas.UseVisualStyleBackColor = true;
+            btnTodasCuentas.Click += btnTodasCuentas_Click;
             // 
             // listBoxDebe
             // 
@@ -156,7 +162,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Lucida Fax", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            label7.Location = new Point(349, 98);
+            label7.Location = new Point(783, 81);
             label7.Name = "label7";
             label7.Size = new Size(289, 18);
             label7.TabIndex = 13;
@@ -165,7 +171,7 @@
             // dataCuentasMayor
             // 
             dataCuentasMayor.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataCuentasMayor.Location = new Point(669, 98);
+            dataCuentasMayor.Location = new Point(379, 81);
             dataCuentasMayor.Name = "dataCuentasMayor";
             dataCuentasMayor.RowTemplate.Height = 25;
             dataCuentasMayor.Size = new Size(371, 600);
@@ -208,11 +214,42 @@
             labelTotalSaldo.TabIndex = 17;
             labelTotalSaldo.Text = "Total Saldo:";
             // 
+            // dataTodasLasCuentas
+            // 
+            dataTodasLasCuentas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataTodasLasCuentas.Columns.AddRange(new DataGridViewColumn[] { colCuenta, colDeudor, colAcreedor });
+            dataTodasLasCuentas.Location = new Point(757, 190);
+            dataTodasLasCuentas.Name = "dataTodasLasCuentas";
+            dataTodasLasCuentas.RowTemplate.Height = 25;
+            dataTodasLasCuentas.Size = new Size(393, 491);
+            dataTodasLasCuentas.TabIndex = 18;
+            // 
+            // colCuenta
+            // 
+            colCuenta.FillWeight = 120F;
+            colCuenta.HeaderText = "Cuenta";
+            colCuenta.Name = "colCuenta";
+            // 
+            // colDeudor
+            // 
+            colDeudor.HeaderText = "Saldo Deudor";
+            colDeudor.Name = "colDeudor";
+            colDeudor.Width = 115;
+            // 
+            // colAcreedor
+            // 
+            colAcreedor.HeaderText = "Saldo Acreedor";
+            colAcreedor.Name = "colAcreedor";
+            colAcreedor.Width = 115;
+            // 
             // FormLibroMayor
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1052, 710);
+            BackColor = SystemColors.Control;
+            BackgroundImage = Properties.Resources.istockphoto_522378269_2048x2048;
+            ClientSize = new Size(1162, 710);
+            Controls.Add(dataTodasLasCuentas);
             Controls.Add(labelTotalSaldo);
             Controls.Add(lblHaber);
             Controls.Add(lblDebe);
@@ -222,7 +259,7 @@
             Controls.Add(labelCuenta);
             Controls.Add(listBoxHaber);
             Controls.Add(listBoxDebe);
-            Controls.Add(button1);
+            Controls.Add(btnTodasCuentas);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(txtCuentaMayor);
@@ -235,6 +272,7 @@
             Text = "FormLibroMayor";
             Load += FormLibroMayor_Load;
             ((System.ComponentModel.ISupportInitialize)dataCuentasMayor).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataTodasLasCuentas).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -245,7 +283,7 @@
         private Button btnEnviar;
         private Label label3;
         private Label label4;
-        private Button button1;
+        private Button btnTodasCuentas;
         public DateTimePicker dateTimeFechaInicio;
         public DateTimePicker dateTimeFechaFin;
         public TextBox txtCuentaMayor;
@@ -258,5 +296,9 @@
         private Label lblHaber;
         private Label labelCuenta;
         private Label labelTotalSaldo;
+        private DataGridView dataTodasLasCuentas;
+        private DataGridViewTextBoxColumn colCuenta;
+        private DataGridViewTextBoxColumn colDeudor;
+        private DataGridViewTextBoxColumn colAcreedor;
     }
 }

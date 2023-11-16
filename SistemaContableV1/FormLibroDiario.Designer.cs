@@ -38,16 +38,10 @@
             btnImportarCuenta = new Button();
             btnEliminaCuenta = new Button();
             btnGuardarAsiento = new Button();
-            btnLibroMayor = new Button();
-            dateTimePicker1 = new DateTimePicker();
-            dateTimePicker2 = new DateTimePicker();
-            textBox1 = new TextBox();
-            dataGridView1 = new DataGridView();
             label1 = new Label();
             dateAsiento = new DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)dataLibroDiario).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataCuentas).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // dataLibroDiario
@@ -131,46 +125,6 @@
             btnGuardarAsiento.UseVisualStyleBackColor = true;
             btnGuardarAsiento.Click += btnGuardarAsiento_Click;
             // 
-            // btnLibroMayor
-            // 
-            btnLibroMayor.Location = new Point(863, 611);
-            btnLibroMayor.Name = "btnLibroMayor";
-            btnLibroMayor.Size = new Size(101, 34);
-            btnLibroMayor.TabIndex = 5;
-            btnLibroMayor.Text = "Libro Mayor";
-            btnLibroMayor.UseVisualStyleBackColor = true;
-            // 
-            // dateTimePicker1
-            // 
-            dateTimePicker1.Location = new Point(377, 813);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(229, 23);
-            dateTimePicker1.TabIndex = 6;
-            // 
-            // dateTimePicker2
-            // 
-            dateTimePicker2.Location = new Point(519, 618);
-            dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.Size = new Size(200, 23);
-            dateTimePicker2.TabIndex = 7;
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(740, 618);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(100, 23);
-            textBox1.TabIndex = 8;
-            // 
-            // dataGridView1
-            // 
-            dataGridView1.BackgroundColor = SystemColors.ButtonFace;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(726, 677);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(286, 191);
-            dataGridView1.TabIndex = 10;
-            // 
             // label1
             // 
             label1.AutoSize = true;
@@ -194,14 +148,10 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveBorder;
-            ClientSize = new Size(1055, 906);
+            BackgroundImage = Properties.Resources.pexels_steve_johnson_1006060;
+            ClientSize = new Size(1055, 724);
             Controls.Add(dateAsiento);
             Controls.Add(label1);
-            Controls.Add(dataGridView1);
-            Controls.Add(textBox1);
-            Controls.Add(dateTimePicker2);
-            Controls.Add(dateTimePicker1);
-            Controls.Add(btnLibroMayor);
             Controls.Add(btnGuardarAsiento);
             Controls.Add(btnEliminaCuenta);
             Controls.Add(dataCuentas);
@@ -209,11 +159,11 @@
             Controls.Add(dataLibroDiario);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FormLibroDiario";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "LibroDiario";
             Load += FormLibroDiario_Load;
             ((System.ComponentModel.ISupportInitialize)dataLibroDiario).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataCuentas).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -229,11 +179,6 @@
         private DataGridViewTextBoxColumn haber;
         private Button btnEliminaCuenta;
         private Button btnGuardarAsiento;
-        public Button btnLibroMayor;
-        public DateTimePicker dateTimePicker1;
-        public DateTimePicker dateTimePicker2;
-        public TextBox textBox1;
-        public DataGridView dataGridView1;
         private Label label1;
         private DateTimePicker dateAsiento;
     }

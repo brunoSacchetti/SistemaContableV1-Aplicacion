@@ -69,89 +69,176 @@ namespace SistemaContableV1
             }
             else
             {
-                /*var bloquesFiltrados = blockchainAsientos.Cadena
-                .Where(b => b.TimeStamp >= fechaInicio && b.TimeStamp <= fechaFin)
-                .ToList(); */
-                
-                //for(int k = 0; k < blockchainAsientos.Cadena.Count; k++)
-                //{
-                    //var block = blockchainAsientos.Cadena[k];
+                foreach (var asiento in blockchainAsientos.Cadena)
+                {
+                    if (asiento.Index != 0)
+                    {
+                        //tomamos la fecha del asiento, no del block
+                        DateTime fechaAsiento = asiento.Data.fechaAsiento;
 
-                    //if (block.TimeStamp >= fechaInicio && block.TimeStamp <= fechaFin)
-                    //{
-                        foreach (var asiento in blockchainAsientos.Cadena)
+                        // Verifica si la fecha del asiento está dentro del rango
+                        if (fechaAsiento >= fechaInicio && fechaAsiento <= fechaFin)
                         {
-                            if (asiento.Index != 0)
+
+                            if (asiento.Data.ContieneCuentaDebe(txtCuentaMayor.Text))
                             {
-                                if (asiento.Data.ContieneCuentaDebe(txtCuentaMayor.Text))
+                                for (int i = 0; i < asiento.Data.cuentasDebe.Count; i++)
+                                {
+                                    if (asiento.Data.cuentasDebe[i].nombreCuenta == txtCuentaMayor.Text)
+                                    {
+                                        montoDebe.Add((decimal)asiento.Data.cuentasDebe[i].saldoDebe);
+                                        listBoxDebe.Items.Add(asiento.Data.cuentasDebe[i].saldoDebe.ToString());
+                                    }
+                                }
+                            }
+
+                            if (asiento.Data.ContieneCuentaHaber(txtCuentaMayor.Text))
+                            {
+                                for (int j = 0; j < asiento.Data.cuentasHaber.Count; j++)
+                                {
+                                    if (asiento.Data.cuentasHaber[j].nombreCuenta == txtCuentaMayor.Text)
+                                    {
+                                        montoHaber.Add((decimal)asiento.Data.cuentasHaber[j].saldoHaber);
+                                        listBoxHaber.Items.Add(asiento.Data.cuentasHaber[j].saldoHaber.ToString());
+                                    }
+                                }
+                            }
+
+                        }
+                    }
+                }
+            }
+
+            decimal tDebe = montoDebe.Sum();
+            decimal tHaber = montoHaber.Sum();
+
+            lblDebe.Text = "Total Debe: " + tDebe;
+            lblHaber.Text = "Total Haber: " + tHaber;
+            if (tDebe > tHaber)
+            {
+                labelTotalSaldo.Text = "Saldo deudor: " + (tDebe - tHaber);
+            }
+            else if (tDebe < tHaber)
+            {
+                labelTotalSaldo.Text = "Saldo Acreedor: " + (tHaber - tDebe);
+            }
+            else
+            {
+                labelTotalSaldo.Text = "Saldo nulo";
+            }
+
+            MessageBox.Show("Fechas iguales");
+        }
+
+        private void dataCuentasMayor_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow selectedRow = dataCuentasMayor.Rows[e.RowIndex];
+                string id = selectedRow.Cells["id"].Value.ToString();
+                string cuenta = selectedRow.Cells["cuenta"].Value.ToString();
+
+                txtCuentaMayor.Text = cuenta;
+            }
+
+        }
+
+        private void btnTodasCuentas_Click(object sender, EventArgs e)
+        {
+            dataTodasLasCuentas.Rows.Clear();
+
+            //definimos las fechas
+            DateTime fechaInicio = dateTimeFechaInicio.Value;
+            DateTime fechaFin = dateTimeFechaFin.Value;
+
+            //definimos los objetos a usar
+            //List<decimal> montoDebe = new List<decimal>();
+            //List<decimal> montoHaber = new List<decimal>();
+            //Creamos un plan de cuentas para traer los nombres de las cuentas
+            PlanCuentas planCuentas = new PlanCuentas();
+
+            //Traemos los nombres de las cuentas para calcular el libro mayor de cada una
+            List<String> nombresCuentas = planCuentas.ObtenerNombresCuentas();
+
+            if (fechaFin < fechaInicio)
+            {
+                MessageBox.Show("La fecha de fin debe ser igual o posterior a la fecha de inicio. Por favor, selecciona un rango válido.");
+
+            }
+            else
+            {
+                foreach (var cuenta in nombresCuentas)
+                {
+                    List<decimal> montoDebe = new List<decimal>();
+                    List<decimal> montoHaber = new List<decimal>();
+
+                    foreach (var asiento in blockchainAsientos.Cadena)
+                    {
+                        if (asiento.Index != 0)
+                        {
+                            //tomamos la fecha del asiento, no del block
+                            DateTime fechaAsiento = asiento.Data.fechaAsiento;
+
+                            // Verifica si la fecha del asiento está dentro del rango
+                            if (fechaAsiento >= fechaInicio && fechaAsiento <= fechaFin)
+                            {
+
+                                if (asiento.Data.ContieneCuentaDebe(cuenta))
                                 {
                                     for (int i = 0; i < asiento.Data.cuentasDebe.Count; i++)
                                     {
-                                        if (asiento.Data.cuentasDebe[i].nombreCuenta == txtCuentaMayor.Text)
+                                        if (asiento.Data.cuentasDebe[i].nombreCuenta == cuenta)
                                         {
                                             montoDebe.Add((decimal)asiento.Data.cuentasDebe[i].saldoDebe);
-                                            listBoxDebe.Items.Add(asiento.Data.cuentasDebe[i].saldoDebe.ToString());
+                                            //listBoxDebe.Items.Add(asiento.Data.cuentasDebe[i].saldoDebe.ToString());
                                         }
                                     }
                                 }
 
-                                if (asiento.Data.ContieneCuentaHaber(txtCuentaMayor.Text))
+                                if (asiento.Data.ContieneCuentaHaber(cuenta))
                                 {
                                     for (int j = 0; j < asiento.Data.cuentasHaber.Count; j++)
                                     {
-                                        if (asiento.Data.cuentasHaber[j].nombreCuenta == txtCuentaMayor.Text)
+                                        if (asiento.Data.cuentasHaber[j].nombreCuenta == cuenta)
                                         {
                                             montoHaber.Add((decimal)asiento.Data.cuentasHaber[j].saldoHaber);
-                                            listBoxHaber.Items.Add(asiento.Data.cuentasHaber[j].saldoHaber.ToString());
+                                            //listBoxHaber.Items.Add(asiento.Data.cuentasHaber[j].saldoHaber.ToString());
                                         }
                                     }
                                 }
 
                             }
                         }
-                    //}
-                //}
-                //decimal tDebe = montoDebe.Aggregate(0, (acc, x) => (decimal)acc + x);
-                //decimal tHaber = montoHaber.Aggregate(0, (acc, x) => (decimal)acc + x);
+                    }
 
-                decimal tDebe = montoDebe.Sum();
-                decimal tHaber = montoHaber.Sum();
+                    decimal tDebe = montoDebe.Sum();
+                    decimal tHaber = montoHaber.Sum();
 
-                lblDebe.Text = "Total Debe: " + tDebe;
-                lblHaber.Text = "Total Haber: " + tHaber;
-                if (tDebe > tHaber)
-                {
-                    labelTotalSaldo.Text = "Saldo deudor: " + (tDebe - tHaber);
-                }
-                else if (tDebe < tHaber)
-                {
-                    labelTotalSaldo.Text = "Saldo Acreedor: " + (tHaber - tDebe);
-                }
-                else
-                {
-                    labelTotalSaldo.Text = "Saldo nulo";
-                }
 
-                MessageBox.Show("Fechas iguales");
+                    if (tDebe > tHaber)
+                    {
+                        
+                        dataTodasLasCuentas.Rows.Add(cuenta, tDebe - tHaber, 0);
+                    }
+                    else if (tDebe < tHaber)
+                    {
+                        
+                        dataTodasLasCuentas.Rows.Add(cuenta, 0, tHaber - tDebe);
+                    }
+                    else
+                    {
+                        
+                        dataTodasLasCuentas.Rows.Add(cuenta,0,0);
+                    }
+
+                    montoDebe.Clear();
+                    montoHaber.Clear();
+                }
             }
-        }
-
-            private void dataCuentasMayor_CellClick_1(object sender, DataGridViewCellEventArgs e)
-            {
-
-                if (e.RowIndex >= 0)
-                {
-                    DataGridViewRow selectedRow = dataCuentasMayor.Rows[e.RowIndex];
-                    string id = selectedRow.Cells["id"].Value.ToString();
-                    string cuenta = selectedRow.Cells["cuenta"].Value.ToString();
-
-                    txtCuentaMayor.Text = cuenta;
-                }
-
-            }
-
 
         }
     }
+}
 
 

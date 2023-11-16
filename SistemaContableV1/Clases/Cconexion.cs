@@ -34,5 +34,11 @@ namespace SistemaContableV1.Clases
         {
             conex.Close();
         }
+
+        public MySqlDataReader ObtenerNombresCuentas()
+        {
+            MySqlCommand command = new MySqlCommand("SELECT cuenta FROM cuentas", conex); // Reemplaza con el nombre de tu tabla de cuentas
+            return command.ExecuteReader();
+        }
     }
 }

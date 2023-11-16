@@ -11,6 +11,7 @@ namespace SistemaContableV1.Clases
     {
         public List<Cuenta> cuentasDebe = new List<Cuenta>();
         public List<Cuenta> cuentasHaber = new List<Cuenta>();
+        public DateTime fechaAsiento { get; set; }
 
         public AsientoContable() { }
 
