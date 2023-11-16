@@ -1,0 +1,3 @@
+El archivo .json se debe importar desde MongoDB
+
+El archivo cuentas es un archivo perteneciente a MySQL, por lo que se puede copiar el script ahi mismo para generar la base de datos

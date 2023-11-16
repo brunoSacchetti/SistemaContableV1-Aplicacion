@@ -1,0 +1,467 @@
+[{
+  "_id": {
+    "$oid": "65550edd38148fd298daa4f4"
+  },
+  "Cadena": [
+    {
+      "Index": 0,
+      "TimeStamp": {
+        "$date": "2023-11-15T18:31:51.571Z"
+      },
+      "PreviousHash": null,
+      "Hash": "�6)��\u001b�V���P��|#\u0016W�t�\u000e�Lc�\u0011\bw�$�",
+      "Data": {
+        "cuentasDebe": [],
+        "cuentasHaber": [],
+        "fechaAsiento": {
+          "$date": {
+            "$numberLong": "-62135596800000"
+          }
+        }
+      }
+    },
+    {
+      "Index": 1,
+      "TimeStamp": {
+        "$date": "2023-11-15T18:31:51.571Z"
+      },
+      "PreviousHash": "�6)��\u001b�V���P��|#\u0016W�t�\u000e�Lc�\u0011\bw�$�",
+      "Hash": "��e�#<6�@\u0014\u001d񠎴\f��㾚]�%Q��UC��'",
+      "Data": {
+        "cuentasDebe": [
+          {
+            "nombreCuenta": "Caja",
+            "saldoDebe": "10000",
+            "saldoHaber": "0"
+          }
+        ],
+        "cuentasHaber": [
+          {
+            "nombreCuenta": "Banco c/c",
+            "saldoDebe": "0",
+            "saldoHaber": "4500"
+          },
+          {
+            "nombreCuenta": "Proveedores",
+            "saldoDebe": "0",
+            "saldoHaber": "5500"
+          }
+        ],
+        "fechaAsiento": {
+          "$date": "2000-01-20T18:31:51.000Z"
+        }
+      }
+    },
+    {
+      "Index": 2,
+      "TimeStamp": {
+        "$date": "2023-11-15T18:31:51.571Z"
+      },
+      "PreviousHash": "��e�#<6�@\u0014\u001d񠎴\f��㾚]�%Q��UC��'",
+      "Hash": "cm�&��@'���f��\u0015*��@*k1W�!7c�����",
+      "Data": {
+        "cuentasDebe": [
+          {
+            "nombreCuenta": "Caja",
+            "saldoDebe": "55000",
+            "saldoHaber": "0"
+          }
+        ],
+        "cuentasHaber": [
+          {
+            "nombreCuenta": "Mercaderias",
+            "saldoDebe": "0",
+            "saldoHaber": "5000"
+          },
+          {
+            "nombreCuenta": "Banco c/c",
+            "saldoDebe": "0",
+            "saldoHaber": "25000"
+          },
+          {
+            "nombreCuenta": "Proveedores",
+            "saldoDebe": "0",
+            "saldoHaber": "25000"
+          }
+        ],
+        "fechaAsiento": {
+          "$date": "2000-06-06T18:31:51.000Z"
+        }
+      }
+    },
+    {
+      "Index": 3,
+      "TimeStamp": {
+        "$date": "2023-11-15T18:31:51.571Z"
+      },
+      "PreviousHash": "cm�&��@'���f��\u0015*��@*k1W�!7c�����",
+      "Hash": "\u0016\u0015�{\nc�z \u001d6����zG�y��l�/E]z�o",
+      "Data": {
+        "cuentasDebe": [
+          {
+            "nombreCuenta": "Capital",
+            "saldoDebe": "400000",
+            "saldoHaber": "0"
+          },
+          {
+            "nombreCuenta": "Rodados",
+            "saldoDebe": "24800",
+            "saldoHaber": "0"
+          }
+        ],
+        "cuentasHaber": [
+          {
+            "nombreCuenta": "Intereses Ganados",
+            "saldoDebe": "0",
+            "saldoHaber": "400000"
+          },
+          {
+            "nombreCuenta": "Acreedores",
+            "saldoDebe": "0",
+            "saldoHaber": "24800"
+          }
+        ],
+        "fechaAsiento": {
+          "$date": "2001-08-14T18:31:51.000Z"
+        }
+      }
+    },
+    {
+      "Index": 4,
+      "TimeStamp": {
+        "$date": "2023-11-15T18:31:51.571Z"
+      },
+      "PreviousHash": "\u0016\u0015�{\nc�z \u001d6����zG�y��l�/E]z�o",
+      "Hash": "�4\u0002�\u001fΊl\u001a���>�:sw�uƖ�Jא��\u000e�`��",
+      "Data": {
+        "cuentasDebe": [
+          {
+            "nombreCuenta": "Inmuebles",
+            "saldoDebe": "145000",
+            "saldoHaber": "0"
+          }
+        ],
+        "cuentasHaber": [
+          {
+            "nombreCuenta": "Caja",
+            "saldoDebe": "0",
+            "saldoHaber": "100000"
+          },
+          {
+            "nombreCuenta": "Banco c/c",
+            "saldoDebe": "0",
+            "saldoHaber": "20000"
+          },
+          {
+            "nombreCuenta": "Proveedores",
+            "saldoDebe": "0",
+            "saldoHaber": "25000"
+          }
+        ],
+        "fechaAsiento": {
+          "$date": "2003-07-18T18:31:51.000Z"
+        }
+      }
+    },
+    {
+      "Index": 5,
+      "TimeStamp": {
+        "$date": "2023-11-15T18:31:51.571Z"
+      },
+      "PreviousHash": "�4\u0002�\u001fΊl\u001a���>�:sw�uƖ�Jא��\u000e�`��",
+      "Hash": "\u0007@l��\u001aT��J\u0019�\u0011+.�\u0003lh})d��@���\u0019��o",
+      "Data": {
+        "cuentasDebe": [
+          {
+            "nombreCuenta": "Rodados",
+            "saldoDebe": "34680",
+            "saldoHaber": "0"
+          }
+        ],
+        "cuentasHaber": [
+          {
+            "nombreCuenta": "Intereses Ganados",
+            "saldoDebe": "0",
+            "saldoHaber": "680"
+          },
+          {
+            "nombreCuenta": "Mercaderias",
+            "saldoDebe": "0",
+            "saldoHaber": "34000"
+          }
+        ],
+        "fechaAsiento": {
+          "$date": "2005-11-22T18:31:51.000Z"
+        }
+      }
+    },
+    {
+      "Index": 6,
+      "TimeStamp": {
+        "$date": "2023-11-15T18:31:51.571Z"
+      },
+      "PreviousHash": "\u0007@l��\u001aT��J\u0019�\u0011+.�\u0003lh})d��@���\u0019��o",
+      "Hash": "U���\n�0�^�W��/�\u0013���O�N����\u0011\u0018\u001e.[�",
+      "Data": {
+        "cuentasDebe": [
+          {
+            "nombreCuenta": "Banco c/c",
+            "saldoDebe": "12500",
+            "saldoHaber": "0"
+          }
+        ],
+        "cuentasHaber": [
+          {
+            "nombreCuenta": "Caja",
+            "saldoDebe": "0",
+            "saldoHaber": "12500"
+          }
+        ],
+        "fechaAsiento": {
+          "$date": "2009-08-19T18:31:51.000Z"
+        }
+      }
+    },
+    {
+      "Index": 7,
+      "TimeStamp": {
+        "$date": "2023-11-15T18:31:51.571Z"
+      },
+      "PreviousHash": "U���\n�0�^�W��/�\u0013���O�N����\u0011\u0018\u001e.[�",
+      "Hash": ":?�$\u0012�J�\u001c��\"�]��\u0017?A~,#A{,}�tkIV",
+      "Data": {
+        "cuentasDebe": [
+          {
+            "nombreCuenta": "Inmuebles",
+            "saldoDebe": "67000",
+            "saldoHaber": "0"
+          }
+        ],
+        "cuentasHaber": [
+          {
+            "nombreCuenta": "Proveedores",
+            "saldoDebe": "0",
+            "saldoHaber": "7000"
+          },
+          {
+            "nombreCuenta": "Capital",
+            "saldoDebe": "0",
+            "saldoHaber": "60000"
+          }
+        ],
+        "fechaAsiento": {
+          "$date": "2011-06-14T18:31:51.000Z"
+        }
+      }
+    },
+    {
+      "Index": 8,
+      "TimeStamp": {
+        "$date": "2023-11-15T18:31:51.571Z"
+      },
+      "PreviousHash": ":?�$\u0012�J�\u001c��\"�]��\u0017?A~,#A{,}�tkIV",
+      "Hash": "\u00162�{���S�i�r\"dte�:y��m(S�\u0004 u��\u000b\u0017",
+      "Data": {
+        "cuentasDebe": [
+          {
+            "nombreCuenta": "Mercaderias",
+            "saldoDebe": "98700",
+            "saldoHaber": "0"
+          }
+        ],
+        "cuentasHaber": [
+          {
+            "nombreCuenta": "Banco c/c",
+            "saldoDebe": "0",
+            "saldoHaber": "98700"
+          }
+        ],
+        "fechaAsiento": {
+          "$date": "2013-04-12T18:31:51.000Z"
+        }
+      }
+    },
+    {
+      "Index": 9,
+      "TimeStamp": {
+        "$date": "2023-11-15T18:31:51.571Z"
+      },
+      "PreviousHash": "\u00162�{���S�i�r\"dte�:y��m(S�\u0004 u��\u000b\u0017",
+      "Hash": "#��l}I\rM%/�n�\u000e�`����w��D�u!�χ/�",
+      "Data": {
+        "cuentasDebe": [
+          {
+            "nombreCuenta": "Proveedores",
+            "saldoDebe": "56000",
+            "saldoHaber": "0"
+          },
+          {
+            "nombreCuenta": "Rodados",
+            "saldoDebe": "70000",
+            "saldoHaber": "0"
+          }
+        ],
+        "cuentasHaber": [
+          {
+            "nombreCuenta": "Caja",
+            "saldoDebe": "0",
+            "saldoHaber": "126000"
+          }
+        ],
+        "fechaAsiento": {
+          "$date": "2018-05-09T18:31:51.000Z"
+        }
+      }
+    },
+    {
+      "Index": 10,
+      "TimeStamp": {
+        "$date": "2023-11-15T18:31:51.571Z"
+      },
+      "PreviousHash": "#��l}I\rM%/�n�\u000e�`����w��D�u!�χ/�",
+      "Hash": "�.\u0017W�S��\n*�ڤ�gMD�\n:��d��\u0006��LG<�",
+      "Data": {
+        "cuentasDebe": [
+          {
+            "nombreCuenta": "Inmuebles",
+            "saldoDebe": "45000",
+            "saldoHaber": "0"
+          },
+          {
+            "nombreCuenta": "Mercaderias",
+            "saldoDebe": "45000",
+            "saldoHaber": "0"
+          }
+        ],
+        "cuentasHaber": [
+          {
+            "nombreCuenta": "Banco c/c",
+            "saldoDebe": "0",
+            "saldoHaber": "45000"
+          },
+          {
+            "nombreCuenta": "Proveedores",
+            "saldoDebe": "0",
+            "saldoHaber": "45000"
+          }
+        ],
+        "fechaAsiento": {
+          "$date": "2022-05-31T18:31:51.000Z"
+        }
+      }
+    },
+    {
+      "Index": 11,
+      "TimeStamp": {
+        "$date": "2023-11-15T18:31:51.571Z"
+      },
+      "PreviousHash": "�.\u0017W�S��\n*�ڤ�gMD�\n:��d��\u0006��LG<�",
+      "Hash": "^��C\u0002\rc|L�E�Y<\b\u0007-���>�d3���\u0011b�",
+      "Data": {
+        "cuentasDebe": [
+          {
+            "nombreCuenta": "Rodados",
+            "saldoDebe": "35700",
+            "saldoHaber": "0"
+          },
+          {
+            "nombreCuenta": "Mercaderias",
+            "saldoDebe": "32000",
+            "saldoHaber": "0"
+          }
+        ],
+        "cuentasHaber": [
+          {
+            "nombreCuenta": "Caja",
+            "saldoDebe": "0",
+            "saldoHaber": "67700"
+          }
+        ],
+        "fechaAsiento": {
+          "$date": "2023-11-13T18:31:51.000Z"
+        }
+      }
+    },
+    {
+      "Index": 12,
+      "TimeStamp": {
+        "$date": "2023-11-15T18:31:51.571Z"
+      },
+      "PreviousHash": "^��C\u0002\rc|L�E�Y<\b\u0007-���>�d3���\u0011b�",
+      "Hash": "\u001f�I����U�mb��3��\u0002fu>\u0019E�\b�\u0002�f�� ",
+      "Data": {
+        "cuentasDebe": [
+          {
+            "nombreCuenta": "Acreedores",
+            "saldoDebe": "1000",
+            "saldoHaber": "0"
+          }
+        ],
+        "cuentasHaber": [
+          {
+            "nombreCuenta": "Intereses Ganados",
+            "saldoDebe": "0",
+            "saldoHaber": "1000"
+          }
+        ],
+        "fechaAsiento": {
+          "$date": "2023-11-15T18:31:51.000Z"
+        }
+      }
+    },
+    {
+      "Index": 13,
+      "TimeStamp": {
+        "$date": "2023-11-15T18:31:51.571Z"
+      },
+      "PreviousHash": "\u001f�I����U�mb��3��\u0002fu>\u0019E�\b�\u0002�f�� ",
+      "Hash": "��N�����c\u000e�y\r��oJ\f=<j�~�4Q� م�U",
+      "Data": {
+        "cuentasDebe": [
+          {
+            "nombreCuenta": "Caja",
+            "saldoDebe": "5000",
+            "saldoHaber": "0"
+          }
+        ],
+        "cuentasHaber": [
+          {
+            "nombreCuenta": "Banco c/c",
+            "saldoDebe": "0",
+            "saldoHaber": "5000"
+          }
+        ],
+        "fechaAsiento": {
+          "$date": "2023-11-14T18:43:42.000Z"
+        }
+      }
+    },
+    {
+      "Index": 14,
+      "TimeStamp": {
+        "$date": "2023-11-15T18:31:51.571Z"
+      },
+      "PreviousHash": "��N�����c\u000e�y\r��oJ\f=<j�~�4Q� م�U",
+      "Hash": "[\u000f��d���Ka�\tܘ{�I��(�\ni\u0019Ig+�u�(-",
+      "Data": {
+        "cuentasDebe": [
+          {
+            "nombreCuenta": "Caja",
+            "saldoDebe": "4500",
+            "saldoHaber": "0"
+          }
+        ],
+        "cuentasHaber": [
+          {
+            "nombreCuenta": "Banco c/c",
+            "saldoDebe": "0",
+            "saldoHaber": "4500"
+          }
+        ],
+        "fechaAsiento": {
+          "$date": "2023-11-15T18:51:30.653Z"
+        }
+      }
+    }
+  ]
+}]
