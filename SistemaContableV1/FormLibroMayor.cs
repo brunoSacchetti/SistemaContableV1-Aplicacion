@@ -126,8 +126,6 @@ namespace SistemaContableV1
             {
                 labelTotalSaldo.Text = "Saldo nulo";
             }
-
-            MessageBox.Show("Fechas iguales");
         }
 
         private void dataCuentasMayor_CellClick_1(object sender, DataGridViewCellEventArgs e)

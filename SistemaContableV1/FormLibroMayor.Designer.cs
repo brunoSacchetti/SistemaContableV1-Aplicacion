@@ -50,6 +50,7 @@
             colCuenta = new DataGridViewTextBoxColumn();
             colDeudor = new DataGridViewTextBoxColumn();
             colAcreedor = new DataGridViewTextBoxColumn();
+            label5 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataCuentasMayor).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataTodasLasCuentas).BeginInit();
             SuspendLayout();
@@ -116,7 +117,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.Location = new Point(440, 9);
+            label4.Location = new Point(469, 9);
             label4.Name = "label4";
             label4.Size = new Size(184, 37);
             label4.TabIndex = 7;
@@ -124,7 +125,7 @@
             // 
             // btnTodasCuentas
             // 
-            btnTodasCuentas.Location = new Point(877, 115);
+            btnTodasCuentas.Location = new Point(889, 139);
             btnTodasCuentas.Name = "btnTodasCuentas";
             btnTodasCuentas.Size = new Size(120, 54);
             btnTodasCuentas.TabIndex = 8;
@@ -151,20 +152,20 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Font = new Font("Lucida Fax", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            label6.Location = new Point(12, 98);
+            label6.Font = new Font("Lucida Fax", 14F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            label6.Location = new Point(12, 61);
             label6.Name = "label6";
-            label6.Size = new Size(237, 18);
+            label6.Size = new Size(282, 22);
             label6.TabIndex = 12;
             label6.Text = "Libro Mayor de una cuenta";
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Font = new Font("Lucida Fax", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            label7.Location = new Point(783, 81);
+            label7.Font = new Font("Lucida Fax", 14F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            label7.Location = new Point(778, 61);
             label7.Name = "label7";
-            label7.Size = new Size(289, 18);
+            label7.Size = new Size(347, 22);
             label7.TabIndex = 13;
             label7.Text = "Libro mayor de todas las cuentas";
             // 
@@ -174,7 +175,7 @@
             dataCuentasMayor.Location = new Point(379, 81);
             dataCuentasMayor.Name = "dataCuentasMayor";
             dataCuentasMayor.RowTemplate.Height = 25;
-            dataCuentasMayor.Size = new Size(371, 600);
+            dataCuentasMayor.Size = new Size(371, 617);
             dataCuentasMayor.TabIndex = 14;
             dataCuentasMayor.CellClick += dataCuentasMayor_CellClick_1;
             // 
@@ -218,7 +219,7 @@
             // 
             dataTodasLasCuentas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataTodasLasCuentas.Columns.AddRange(new DataGridViewColumn[] { colCuenta, colDeudor, colAcreedor });
-            dataTodasLasCuentas.Location = new Point(757, 190);
+            dataTodasLasCuentas.Location = new Point(757, 207);
             dataTodasLasCuentas.Name = "dataTodasLasCuentas";
             dataTodasLasCuentas.RowTemplate.Height = 25;
             dataTodasLasCuentas.Size = new Size(393, 491);
@@ -242,6 +243,16 @@
             colAcreedor.Name = "colAcreedor";
             colAcreedor.Width = 115;
             // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label5.Location = new Point(874, 103);
+            label5.Name = "label5";
+            label5.Size = new Size(146, 19);
+            label5.TabIndex = 19;
+            label5.Text = "*Seleccione una fecha*";
+            // 
             // FormLibroMayor
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -249,6 +260,7 @@
             BackColor = SystemColors.Control;
             BackgroundImage = Properties.Resources.redimMayor;
             ClientSize = new Size(1162, 710);
+            Controls.Add(label5);
             Controls.Add(dataTodasLasCuentas);
             Controls.Add(labelTotalSaldo);
             Controls.Add(lblHaber);
@@ -300,5 +312,6 @@
         private DataGridViewTextBoxColumn colCuenta;
         private DataGridViewTextBoxColumn colDeudor;
         private DataGridViewTextBoxColumn colAcreedor;
+        private Label label5;
     }
 }
