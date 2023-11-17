@@ -35,7 +35,7 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.Image = Properties.Resources.bg;
+            pictureBox1.Image = Properties.Resources.bg2;
             resources.ApplyResources(pictureBox1, "pictureBox1");
             pictureBox1.Name = "pictureBox1";
             pictureBox1.TabStop = false;

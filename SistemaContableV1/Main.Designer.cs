@@ -60,7 +60,7 @@
             // 
             // btnRegistrarEmpresa
             // 
-            btnRegistrarEmpresa.BackColor = Color.LightBlue;
+            btnRegistrarEmpresa.BackColor = Color.White;
             btnRegistrarEmpresa.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             btnRegistrarEmpresa.ForeColor = Color.Black;
             btnRegistrarEmpresa.Location = new Point(16, 73);
@@ -73,7 +73,7 @@
             // 
             // btnLibroDiario
             // 
-            btnLibroDiario.BackColor = Color.LightBlue;
+            btnLibroDiario.BackColor = Color.White;
             btnLibroDiario.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             btnLibroDiario.ForeColor = Color.Black;
             btnLibroDiario.Location = new Point(16, 413);
@@ -86,7 +86,7 @@
             // 
             // btnPlanCuenta
             // 
-            btnPlanCuenta.BackColor = Color.LightBlue;
+            btnPlanCuenta.BackColor = Color.White;
             btnPlanCuenta.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             btnPlanCuenta.ForeColor = Color.Black;
             btnPlanCuenta.Location = new Point(16, 245);
@@ -99,7 +99,7 @@
             // 
             // btnLibroMayor
             // 
-            btnLibroMayor.BackColor = Color.LightBlue;
+            btnLibroMayor.BackColor = Color.White;
             btnLibroMayor.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             btnLibroMayor.ForeColor = Color.Black;
             btnLibroMayor.Location = new Point(16, 568);
@@ -115,7 +115,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.GradientInactiveCaption;
+            BackColor = SystemColors.ControlDark;
             ClientSize = new Size(1331, 818);
             Controls.Add(btnLibroMayor);
             Controls.Add(btnPlanCuenta);

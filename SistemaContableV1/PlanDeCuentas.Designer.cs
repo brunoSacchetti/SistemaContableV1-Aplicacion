@@ -164,7 +164,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLight;
-            ClientSize = new Size(765, 571);
+            ClientSize = new Size(693, 586);
             Controls.Add(txtIde);
             Controls.Add(id);
             Controls.Add(dPlanCuentas);
